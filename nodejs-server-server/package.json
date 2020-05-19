@@ -1,0 +1,26 @@
+{
+  "name": "ramen-association",
+  "version": "1.0.0",
+  "description": "This is the back-end of the RAMEN Voluntary Association",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "knex": "^0.21.1",
+    "pg": "8.2.1",
+    "serve-static": "1.14.1",
+    "swagger-tools": "0.10.1"
+  },
+  "devDependencies": {
+    "ws": "3.3.2"
+  }
+}

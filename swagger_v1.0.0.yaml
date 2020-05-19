@@ -1,0 +1,447 @@
+swagger: "2.0"
+info:
+  description: "This is the back-end of the RAMEN Voluntary Association"
+  version: "1.0.0"
+  title: "Ramen Association"
+  contact:
+    email: "eduardionut.chirica@mail.polimi.it"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: localhost:8080
+basePath: "/v2"
+tags:
+- name: "event"
+  description: "Available Event"
+- name: "service"
+  description: "Service Provided"
+- name: "person"
+  description: "Person involved in any way inside the association"
+- name: "sponsor"
+  description: "Sponsor of Events inside the Association"
+- name: "user"
+  description: "Operations about user"
+schemes:
+- "https"
+- "http"
+paths:
+  /events:
+    get:
+      summary: "Events available on the Association"
+      tags:
+        - event
+      description: "List of Events available on the Association"
+      produces:
+        - application/json
+      parameters:
+        - name: search
+          in: query
+          description: "Generic text search"
+          type: string
+        - name: ref_name
+          in: query
+          description: "Reference contact name"
+          type: string
+        - name: ref_surname
+          in: query
+          description: "Reference contact surname"
+          type: string
+      responses:
+        '200':
+          description: "A collection of Events"
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Event'
+        '404':  
+          description: "Unexpected error"
+  /events/{eventId}:
+    get:
+      summary: "Find Event by ID"
+      tags:
+        - event
+      description: "Returns an Event"
+      produces:
+        - application/json
+      parameters:
+        - name: eventId
+          in: path
+          description: "ID of the event to return"
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: "succesful operation"
+          schema:
+            $ref: '#/definitions/Event'
+        '400':  
+          description: "Invalid ID supplied"
+        '404':  
+          description: "Event not found"
+  /events/reference:
+    get:
+      summary: "Contact reference for the Event"
+      tags:
+        - event
+      description: "Contact reference for the Event"
+      produces:
+        - application/json
+      parameters:
+        - name: event_id
+          in: query
+          description: "Event's ID"
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: "The contact reference Person"
+          schema:
+            $ref: '#/definitions/Person'
+        '404':  
+          description: "Unexpected error"
+  /events/sponsors:
+    get:
+      summary: "List of the Sponsors for this Event"
+      tags:
+        - event
+      description: "List of the Sponsors that have donated some money for this Event"
+      produces:
+        - application/json
+      parameters:
+        - name: event_id
+          in: query
+          description: "Event's ID"
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: "The collection of Sponsors"
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Sponsor'
+        '404':  
+          description: "Unexpected error"
+  /services:
+    get:
+      summary: "Services available at Events"
+      tags:
+        - service
+      description: "List of Services available at a Event"
+      produces:
+        - application/json
+      parameters:
+        - name: search
+          in: query
+          description: "Generic text search"
+          type: string
+      responses:
+        '200':
+          description: "A collection of Services"
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Service'
+        '404':  
+          description: "Unexpected error"
+  /services/people:
+    get:
+      summary: "List of the People involeved"
+      tags:
+        - service
+      description: "List of the People involeved/working for this Service"
+      produces:
+        - application/json
+      parameters:
+        - name: service_name
+          in: query
+          description: "Service's name"
+          required: true
+          type: string
+      responses:
+        '200':
+          description: "The collection of People"
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Person'
+        '404':  
+          description: "Unexpected error"
+  /people:
+    get:
+      summary: "People working in the Association"
+      tags:
+        - person
+      description: "List of People working in the Association"
+      produces:
+        - application/json
+      parameters:
+        - name: name
+          in: query
+          description: "Name"
+          type: string
+        - name: surname
+          in: query
+          description: "Surname"
+          type: string
+      responses:
+        '200':
+          description: "A collection of People"
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Person'
+        '404':  
+          description: "Unexpected error"
+  /people/{personId}:
+    get:
+      summary: "Find Person by ID"
+      tags:
+        - person
+      description: "Returns an Person"
+      produces:
+        - application/json
+      parameters:
+        - name: personId
+          in: path
+          description: "ID of the person to return"
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: "succesful operation"
+          schema:
+            $ref: '#/definitions/Person'
+        '400':  
+          description: "Invalid ID supplied"
+        '404':  
+          description: "Person not found"
+  /sponsors:
+    get:
+      summary: "Sponsors of Events"
+      tags:
+        - sponsor
+      description: "List of Sponsors that make donations to support Events"
+      produces:
+        - application/json
+      parameters:
+        - name: search
+          in: query
+          description: "Generic text search"
+          type: string
+      responses:
+        '200':
+          description: "A collection of Sponsors"
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Sponsor'
+        '404':  
+          description: "Unexpected error"
+          
+  /users/login:
+    post:
+      tags:
+        - user
+      summary: Login
+      description: Login with a form
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: username
+          in: formData
+          required: true
+          type: string
+        - name: password
+          in: formData
+          required: true
+          type: string
+      responses:
+        '301':
+          description: succesfull login, redirect to page
+        '401':
+          description: unsuccesful login, redirect to error page
+  /users/me:
+    post:
+      tags:
+        - user
+      summary: Data of the user of the current session
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: succesfull login
+          schema:
+            $ref: '#/definitions/User'
+        '401':
+          description: unauthorized
+definitions:
+  Event:
+    title: Event
+    description: An Event offered by the Association
+    type: object
+    required: 
+      - id
+      - name
+      - img
+      - contact_reference
+      - location
+      - city
+      - date
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+        example: How to make perfect noodles
+      description:
+        type: string
+        example: A perfect opportunity to learn how to make noodles from the best noodles master.
+      img:       
+        type: string
+        example: /pictures/noodles
+      contact_reference:   
+        type: integer
+        $ref: '#/definitions/Person'
+      location:   
+        type: string
+        example: Hotel PerfectNoodles
+      city:   
+        type: string
+        example: Milan
+      max_participants:     
+        type: integer
+        example: 20
+      date:
+        type: string
+        example: 12-05-2020 12:00:00
+  Service:
+    title: Service
+    description: An Event offered by the Association
+    type: object
+    required: 
+      - name
+      - event
+      - img
+      - date
+    properties:
+      name:
+        type: string
+        example: Teach how to do noodles
+      event:   
+        type: integer
+        $ref: '#/definitions/Event'
+      description:
+        type: string
+        example: Teaching how to make noodles from the best cooks.
+      mission:
+        type: string
+        example: Offer the best cooking experience and best tasting experience regarding noodles
+      img:       
+        type: string
+        example: /pictures/noodles_service
+      date:
+        type: string
+        example: 12-05-2020 12:00:00
+  Person:
+    title: Person
+    description: A Person working for the Association
+    type: object
+    required: 
+      - id
+      - name
+      - surname
+      - email
+      - description
+      - role
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+        example: Gino
+      surname:
+        type: string
+        example: Mirtino
+      img:
+        type: string
+        example: /pictures/ginomirtino
+      email:
+        type: string
+        example: gino@gmail.com
+      phone:
+        type: string
+        example: 3249412355
+      description:
+        type: string
+        example: apprentice cook, trying to help during the cooking events
+      role:
+        type: string
+        example: apprentice cook
+      birthday:
+        type: string
+        example: 31-05-1990
+      gender:
+        type: string
+        example: male
+  Sponsor:
+    title: Sponsor
+    description: that makes donations to support Events
+    type: object
+    required: 
+      - name
+      - company
+    properties:
+      name:
+        type: string
+        example: Barilla
+      company:   
+        type: integer
+        example: Barilla s.p.a.
+      img:       
+        type: string
+        example: /pictures/barilla
+      description:
+        type: string
+        example: An Italian multinational food company, which is the world's largest pasta producer.
+  User:
+    title: User
+    description: A user
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+       type: string
+      surname:
+        type: string
+      email:
+        type: string
+    example:
+      id: 1
+      name: Vittorio
+      surname: Dino
+      email: vit@gmail.com
+              
+              
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+  
