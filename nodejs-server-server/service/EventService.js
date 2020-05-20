@@ -154,29 +154,37 @@ exports.eventsGET = function(search, ref_name, ref_surname) {
  * Contact reference for the Event
  * Contact reference for the Event
  *
- * event_id Integer Event's ID
+ * eventId Integer Event's ID
  * returns Person
  **/
-exports.eventsReferenceGET = function(event_id) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "birthday" : "31-05-1990",
-  "img" : "/pictures/ginomirtino",
-  "role" : "apprentice cook",
-  "gender" : "male",
-  "phone" : "3249412355",
-  "surname" : "Mirtino",
-  "name" : "Gino",
-  "description" : "apprentice cook, trying to help during the cooking events",
-  "id" : 6,
-  "email" : "gino@gmail.com"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+exports.eventsReferenceGET = function(eventId) {
+  return sqlDb('event as e').join('person as p', 'p.id', 'e.contact_reference')
+  .select({
+    //Person
+    pBirthday :"p.birthday",
+    pImg:"p.img",
+    pRole:"p.role",
+    pGender:"p.gender",
+    pPhone:"p.phone",
+    pSurname:"p.surname",
+    pName:"p.name",
+    pDescription:"p.description",
+    pId:"p.id",
+    pEmail:"p.email",
+  }).where("e.id",eventId).then(data => {
+    return data.map( p => {
+      p = { "birthday" : p.pBirthday,
+            "img" : p.pImg,
+            "role" : p.pRole,
+            "gender" : p.pGender,
+            "phone" : p.pPhone,
+            "surname" : p.pSurname,
+            "name" : p.pName,
+            "description" : p.pDescription,
+            "id" : p.pId,
+            "email" : p.pEmail}
+      return p;
+    })
   });
 }
 
@@ -185,28 +193,27 @@ exports.eventsReferenceGET = function(event_id) {
  * List of the Sponsors for this Event
  * List of the Sponsors that have donated some money for this Event
  *
- * event_id Integer Event's ID
+ * eventId Integer Event's ID
  * returns List
  **/
-exports.eventsSponsorsGET = function(event_id) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "img" : "/pictures/barilla",
-  "name" : "Barilla",
-  "description" : "An Italian multinational food company, which is the world's largest pasta producer.",
-  "company" : "Barilla s.p.a."
-}, {
-  "img" : "/pictures/barilla",
-  "name" : "Barilla",
-  "description" : "An Italian multinational food company, which is the world's largest pasta producer.",
-  "company" : "Barilla s.p.a."
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+exports.eventsSponsorsGET = function(eventId) {
+  return sqlDb('event as e')
+  .join('sponsorship as sp', 'e.id', 'sp.event')
+  .join('sponsor as s', 'sp.sponsor', 's.name')
+  .select({
+    //Sponsor
+    img:"s.img",
+    name:"s.name",
+    description:"s.description",
+    company:"s.company",
+  }).where("e.id",eventId).then(data => {
+    return data.map( s => {
+      s = { "img" : s.img,
+            "name" : s.name,
+            "description" : s.description,
+            "company" : s.company}
+      return s;
+    })
   });
 }
 

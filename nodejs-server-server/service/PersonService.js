@@ -1,5 +1,9 @@
 'use strict';
 
+let sqlDb;
+exports.peopleDbSetup = function(s) {
+  sqlDb = s;
+};
 
 /**
  * People working in the Association
@@ -10,39 +14,35 @@
  * returns List
  **/
 exports.peopleGET = function(name,surname) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "birthday" : "31-05-1990",
-  "img" : "/pictures/ginomirtino",
-  "role" : "apprentice cook",
-  "gender" : "male",
-  "phone" : "3249412355",
-  "surname" : "Mirtino",
-  "name" : "Gino",
-  "description" : "apprentice cook, trying to help during the cooking events",
-  "id" : 6,
-  "email" : "gino@gmail.com"
-}, {
-  "birthday" : "31-05-1990",
-  "img" : "/pictures/ginomirtino",
-  "role" : "apprentice cook",
-  "gender" : "male",
-  "phone" : "3249412355",
-  "surname" : "Mirtino",
-  "name" : "Gino",
-  "description" : "apprentice cook, trying to help during the cooking events",
-  "id" : 6,
-  "email" : "gino@gmail.com"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
+  var query = sqlDb('person as p');
+  
+  //name & surname Parameters
+  if(name != null){
+    query = query.where("p.name", "like", "%"+name+"%");
+
+    if(surname != null){
+      query = query.andWhere("p.surname", "like", "%"+surname+"%");
     }
+  } else if(surname != null){
+    query = query.where("p.surname", "like", "%"+surname+"%");
+  }
+
+  return query.then(data => {
+    return data.map( p => {
+      p = { "birthday" : p.birthday,
+            "img" : p.img,
+            "role" : p.role,
+            "gender" : p.gender,
+            "phone" : p.phone,
+            "surname" : p.surname,
+            "name" : p.name,
+            "description" : p.description,
+            "id" : p.id,
+            "email" : p.email}
+      return p;
+    })
   });
 }
-
 
 /**
  * Find Person by ID
@@ -52,25 +52,20 @@ exports.peopleGET = function(name,surname) {
  * returns Person
  **/
 exports.peoplePersonIdGET = function(personId) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "birthday" : "31-05-1990",
-  "img" : "/pictures/ginomirtino",
-  "role" : "apprentice cook",
-  "gender" : "male",
-  "phone" : "3249412355",
-  "surname" : "Mirtino",
-  "name" : "Gino",
-  "description" : "apprentice cook, trying to help during the cooking events",
-  "id" : 6,
-  "email" : "gino@gmail.com"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+  return sqlDb('person as p').where("p.id",personId).then(data => {
+    return data.map( p => {
+      p = { "birthday" : p.birthday,
+            "img" : p.img,
+            "role" : p.role,
+            "gender" : p.gender,
+            "phone" : p.phone,
+            "surname" : p.surname,
+            "name" : p.name,
+            "description" : p.description,
+            "id" : p.id,
+            "email" : p.email}
+      return p;
+    })
   });
 }
 

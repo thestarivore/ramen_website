@@ -1,5 +1,9 @@
 'use strict';
 
+let sqlDb;
+exports.usersDbSetup = function(s) {
+  sqlDb = s;
+};
 
 /**
  * Login

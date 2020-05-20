@@ -1,5 +1,9 @@
 'use strict';
 
+let sqlDb;
+exports.servicesDbSetup = function(s) {
+  sqlDb = s;
+};
 
 /**
  * Services available at Events
@@ -9,73 +13,76 @@
  * returns List
  **/
 exports.servicesGET = function(search) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "date" : "12-05-2020 12:00:00",
-  "mission" : "Offer the best cooking experience and best tasting experience regarding noodles",
-  "img" : "/pictures/noodles_service",
-  "name" : "Teach how to do noodles",
-  "description" : "Teaching how to make noodles from the best cooks.",
-  "event" : {
-    "contact_reference" : {
-      "birthday" : "31-05-1990",
-      "img" : "/pictures/ginomirtino",
-      "role" : "apprentice cook",
-      "gender" : "male",
-      "phone" : "3249412355",
-      "surname" : "Mirtino",
-      "name" : "Gino",
-      "description" : "apprentice cook, trying to help during the cooking events",
-      "id" : 6,
-      "email" : "gino@gmail.com"
-    },
-    "date" : "12-05-2020 12:00:00",
-    "img" : "/pictures/noodles",
-    "city" : "Milan",
-    "name" : "How to make perfect noodles",
-    "description" : "A perfect opportunity to learn how to make noodles from the best noodles master.",
-    "location" : "Hotel PerfectNoodles",
-    "id" : 0,
-    "max_participants" : 20
-  }
-}, {
-  "date" : "12-05-2020 12:00:00",
-  "mission" : "Offer the best cooking experience and best tasting experience regarding noodles",
-  "img" : "/pictures/noodles_service",
-  "name" : "Teach how to do noodles",
-  "description" : "Teaching how to make noodles from the best cooks.",
-  "event" : {
-    "contact_reference" : {
-      "birthday" : "31-05-1990",
-      "img" : "/pictures/ginomirtino",
-      "role" : "apprentice cook",
-      "gender" : "male",
-      "phone" : "3249412355",
-      "surname" : "Mirtino",
-      "name" : "Gino",
-      "description" : "apprentice cook, trying to help during the cooking events",
-      "id" : 6,
-      "email" : "gino@gmail.com"
-    },
-    "date" : "12-05-2020 12:00:00",
-    "img" : "/pictures/noodles",
-    "city" : "Milan",
-    "name" : "How to make perfect noodles",
-    "description" : "A perfect opportunity to learn how to make noodles from the best noodles master.",
-    "location" : "Hotel PerfectNoodles",
-    "id" : 0,
-    "max_participants" : 20
-  }
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+  var query = sqlDb('service as s')
+  .join('event as e', 'e.id', 's.event')
+  .join('person as p', 'p.id', 'e.contact_reference')
+  .select({
+    //Service
+    date : "s.date",
+    mission : "s.mission",
+    img : "s.img",
+    name : "s.name",
+    description : "s.description",
+    //Event
+    eDate: "e.date",
+    eImg: "e.img",
+    eCity: "e.city",
+    eName: "e.name",
+    eDescription: "e.description",
+    eLocation: "e.location",
+    eId: "e.id",
+    eMaxParticipants: "e.max_participants",
+    //Person
+    pBirthday :"p.birthday",
+    pImg:"p.img",
+    pRole:"p.role",
+    pGender:"p.gender",
+    pPhone:"p.phone",
+    pSurname:"p.surname",
+    pName:"p.name",
+    pDescription:"p.description",
+    pId:"p.id",
+    pEmail:"p.email",
+  });
+  
+  //search Parameter
+  if(search != null)
+    query = query.where("s.name", "like", "%"+search+"%");
+
+  return query.then(data => {
+    return data.map( s => {
+      s = { "date" : s.date,
+            "mission" : s.mission,
+            "img" : s.img,
+            "name" : s.name,
+            "description" : s.description,
+            "event" : {
+              "contact_reference" : {
+                "birthday" : s.pBirthday,
+                "img" : s.pImg,
+                "role" : s.pRole,
+                "gender" : s.pGender,
+                "phone" : s.pPhone,
+                "surname" : s.pSurname,
+                "name" : s.pName,
+                "description" : s.pDescription,
+                "id" : s.pId,
+                "email" : s.pEmail
+              },
+              "date" : s.eDate,
+              "img" : s.eImg,
+              "city" : s.eCity,
+              "name" : s.eName,
+              "description" : s.eDescription,
+              "location" : s.eLocation,
+              "id" : s.eId,
+              "max_participants" : s.eMaxParticipants
+            }
+          }
+      return s;
+    })
   });
 }
-
 
 /**
  * List of the People involeved
@@ -85,36 +92,41 @@ exports.servicesGET = function(search) {
  * returns List
  **/
 exports.servicesPeopleGET = function(service_name) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "birthday" : "31-05-1990",
-  "img" : "/pictures/ginomirtino",
-  "role" : "apprentice cook",
-  "gender" : "male",
-  "phone" : "3249412355",
-  "surname" : "Mirtino",
-  "name" : "Gino",
-  "description" : "apprentice cook, trying to help during the cooking events",
-  "id" : 6,
-  "email" : "gino@gmail.com"
-}, {
-  "birthday" : "31-05-1990",
-  "img" : "/pictures/ginomirtino",
-  "role" : "apprentice cook",
-  "gender" : "male",
-  "phone" : "3249412355",
-  "surname" : "Mirtino",
-  "name" : "Gino",
-  "description" : "apprentice cook, trying to help during the cooking events",
-  "id" : 6,
-  "email" : "gino@gmail.com"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+  var query = sqlDb('service as s')
+  .join('commitment as c', 's.name', 'c.service')
+  .join('person as p', 'p.id', 'c.person')
+  .select({
+    //Person
+    pBirthday :"p.birthday",
+    pImg:"p.img",
+    pRole:"p.role",
+    pGender:"p.gender",
+    pPhone:"p.phone",
+    pSurname:"p.surname",
+    pName:"p.name",
+    pDescription:"p.description",
+    pId:"p.id",
+    pEmail:"p.email",
+  });
+  
+  //service_name Parameter
+  if(service_name != null)
+    query = query.where("s.name", "like", "%"+service_name+"%");
+
+  return query.then(data => {
+    return data.map( s => {
+      s = { "birthday" : s.pBirthday,
+            "img" : s.pImg,
+            "role" : s.pRole,
+            "gender" : s.pGender,
+            "phone" : s.pPhone,
+            "surname" : s.pSurname,
+            "name" : s.pName,
+            "description" : s.pDescription,
+            "id" : s.pId,
+            "email" : s.pEmail}
+      return s;
+    })
   });
 }
 
