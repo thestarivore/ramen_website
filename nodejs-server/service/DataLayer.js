@@ -20,7 +20,7 @@ let sqlDb = sqlDbFactory({
     debug: true,
     client: "postgres",
     connection: {
-        host: process.env.DATABASE_URL, //console: DATABASE_URL=localhost node index.js
+        host: "ec2-54-247-89-181.eu-west-1.compute.amazonaws.com",//process.env.DATABASE_URL, //console: DATABASE_URL=localhost node index.js
         port: "5432",
         user: "vvqmvwqvrqdhcr",
         password:"85f00315a44591755124959e8b3784a660d3f86cbbb3d05416dd31bc633a57d7",
