@@ -20,11 +20,11 @@ let sqlDb = sqlDbFactory({
     debug: true,
     client: "postgres",
     connection: {
-        host: "ec2-54-247-89-181.eu-west-1.compute.amazonaws.com",//process.env.DATABASE_URL, //console: DATABASE_URL=localhost node index.js
+        host: "ec2-54-246-89-234.eu-west-1.compute.amazonaws.com",//process.env.DATABASE_URL, //console: DATABASE_URL=localhost node index.js
         port: "5432",
-        user: "vvqmvwqvrqdhcr",
-        password:"85f00315a44591755124959e8b3784a660d3f86cbbb3d05416dd31bc633a57d7",
-        database: "deaun6c6p3ojga"
+        user: "crcrtdbwyesceh",
+        password:"f1ba8c44a1373109cb0efa9f2ef87d07ae4350c646c37b815257dd4115825446",
+        database: "d75uevfb6avc3b"
     },
     ssl: true
 });
