@@ -22,5 +22,9 @@
   },
   "devDependencies": {
     "ws": "3.3.2"
-  }
+  },
+  "engines": {
+    "node": "8.10.0",
+    "npm": "3.5.2"
+  } 
 }

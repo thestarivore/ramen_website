@@ -38,7 +38,9 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   app.use(middleware.swaggerUi());
 
   //Serve the static assets from the /www flder
-  app.use(serveStatic(__dirname + "/www"));
+  process.env.PWD = process.cwd()
+  //app.use(serveStatic(__dirname + "/www"));           //Local
+  app.use(serveStatic(process.env.PWD + '/www'));       //Heroku
 
   // Initialize the Swagger middleware
   swaggerTools.initializeMiddleware(swaggerDoc, function(middleware) {
