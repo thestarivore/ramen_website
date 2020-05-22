@@ -11,7 +11,7 @@
     "swagger"
   ],
   "license": "Unlicense",
-  "private": true,
+  "private": false,
   "dependencies": {
     "connect": "^3.2.0",
     "js-yaml": "^3.3.0",
@@ -22,5 +22,9 @@
   },
   "devDependencies": {
     "ws": "3.3.2"
+  },
+  "engines": {
+    "node": "8.10.x",
+    "npm": "3.5.x"
   }
 }
