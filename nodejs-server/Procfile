@@ -1,1 +1,1 @@
-web: npm run pack && npm start
+web: node index.js
