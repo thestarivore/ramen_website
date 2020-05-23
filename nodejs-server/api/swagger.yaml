@@ -23,7 +23,7 @@ tags:
 - name: "user"
   description: "Operations about user"
 schemes:
-- "http"
+- "https"
 paths:
   /events:
     get:
