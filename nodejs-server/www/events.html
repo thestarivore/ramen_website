@@ -46,7 +46,7 @@
             <a class="dropdown-item" href="#">WORKSHOPS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="events.html">EVENTS</a>
+          <a class="nav-link" href="#">EVENTS</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">PEOPLE</a>
@@ -68,50 +68,42 @@
     </div>
 
     <div class="col-sm-9">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-pause="hover">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
+      <h1 class="text-light text-center">EVENTS</h1>
       
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div class="carousel-item active">
-            <img src="images/RAMEN.png" style="display: block; margin-left: auto; margin-right: auto; width: 80%;" alt="RAMEN">
-            <div class="carousel-caption d-none d-md-block">
-              <h5 class="text-warning">First slide label</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </div>
-          </div>
-      
-          <div class="carousel-item">
-            <img src="images/RAMEN1.png" style="display: block; margin-left: auto; margin-right: auto; width: 80%;" alt="RAMEN1">
-            <div class="carousel-caption d-none d-md-block">
-              <h5 class="text-warning">Second slide label</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </div>
-          </div>
-      
-          <div class="carousel-item">
-            <img src="images/RAMEN2.png" style="display: block; margin-left: auto; margin-right: auto; width: 80%;" alt="RAMEN2">
-            <div class="carousel-caption d-none d-md-block">
-              <h5 class="text-warning">Third slide label</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <div class="row" id="evets_row_list">
+        <!--<div class="col-sm-4">
+          <div class="card">
+            <img src="images/ramen_dish1.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
         </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <img src="images/ramen_dish2.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <img src="images/ramen_dish3.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        -->
+      </div>
       
-        <!-- Left and right controls -->
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
     </div>
   </div>
 </div>
@@ -129,4 +121,48 @@
 </footer>
 
 </body>
+
+<script>
+  //var myEventsList = document.querySelector("ul");
+  const container = document.getElementById('evets_row_list');
+
+  fetch("v2/events")
+      .then(function(response) {
+          if (!response.ok) {
+              throw new Error("HTTP error, status = " + response.status);
+          }
+          return response.json();
+      })
+      .then(function(json) {
+          for (var i = 0; i < json.length; i++) {
+              var listItem = document.createElement("li");
+              let { id, name, img, description, contact_reference } = json[i];
+              listItem.innerHTML = `${id} - ${name} - ${description} - ${contact_reference.name}`;
+              //myEventsList.appendChild(listItem);
+
+              // Create card element
+              const card = document.createElement('div');
+              card.classList = 'card-body';
+
+              // Construct card content
+              const content = `
+                <div class="col-sm-4">
+                  <div class="card">
+                    <img src="${img}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">${name}</h5>
+                      <p class="card-text">${description}</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+                </div>
+              `;
+
+              // Append newyly created card element to the container
+              container.innerHTML += content;
+          }
+      });
+  
+</script>
+
 </html>

@@ -8,6 +8,7 @@ var app = require('connect')();
 var swaggerTools = require('swagger-tools');
 var jsyaml = require('js-yaml');
 var serverPort = process.env.PORT; //8080 ;//8080;
+//var serverPort = 8080; //8080 ;//8080;
 var serveStatic = require("serve-static");
 let { setupDataLayer } = require("./service/DataLayer");
 
