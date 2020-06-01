@@ -88,10 +88,10 @@ exports.servicesGET = function(search) {
  * List of the People involeved
  * List of the People involeved/working for this Service
  *
- * service_name String Service's name
+ * serviceName String Service's name
  * returns List
  **/
-exports.servicesPeopleGET = function(service_name) {
+exports.servicesPeopleGET = function(serviceName) {
   var query = sqlDb('service as s')
   .join('commitment as c', 's.name', 'c.service')
   .join('person as p', 'p.id', 'c.person')
@@ -109,9 +109,9 @@ exports.servicesPeopleGET = function(service_name) {
     pEmail:"p.email",
   });
   
-  //service_name Parameter
-  if(service_name != null)
-    query = query.where("s.name", "like", "%"+service_name+"%");
+  //serviceName Parameter
+  if(serviceName != null)
+    query = query.where("s.name", "like", "%"+serviceName+"%");
 
   return query.then(data => {
     return data.map( s => {

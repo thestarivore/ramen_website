@@ -8,7 +8,15 @@ module.exports.peopleGET = function peopleGET (req, res, next) {
   var surname = req.swagger.params['surname'].value;
   Person.peopleGET(name,surname)
     .then(function (response) {
-      utils.writeJson(res, response);
+      if(response.length > 0)
+        utils.writeJson(res, response, 200);
+      else if(response.length == 0){ 
+        response[0] = "Not Found. You requested a resource that could not be found or does not exist.";
+        utils.writeJson(res, response, 404);
+      } else {
+        response[0] = "Internal server error.";
+        utils.writeJson(res, response, 500);
+      }
     })
     .catch(function (response) {
       utils.writeJson(res, response);
@@ -19,7 +27,15 @@ module.exports.peoplePersonIdGET = function peoplePersonIdGET (req, res, next) {
   var personId = req.swagger.params['personId'].value;
   Person.peoplePersonIdGET(personId)
     .then(function (response) {
-      utils.writeJson(res, response);
+      if(response.length > 0)
+        utils.writeJson(res, response, 200);
+      else if(response.length == 0){ 
+        response[0] = "Not Found. You requested a resource that could not be found or does not exist.";
+        utils.writeJson(res, response, 404);
+      } else {
+        response[0] = "Internal server error.";
+        utils.writeJson(res, response, 500);
+      }
     })
     .catch(function (response) {
       utils.writeJson(res, response);

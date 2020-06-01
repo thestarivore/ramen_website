@@ -2,9 +2,8 @@ let { eventsDbSetup } = require("./EventService");
 let { peopleDbSetup } = require("./PersonService");
 let { servicesDbSetup } = require("./ServiceService");
 let { sponsorsDbSetup } = require("./SponsorService");
-let { usersDbSetup } = require("./UserService");
 const sqlDbFactory = require("knex");
-/*let sqlDb = sqlDbFactory({
+let sqlDb = sqlDbFactory({
     debug: true,
     client: "postgres",
     connection: {
@@ -15,8 +14,8 @@ const sqlDbFactory = require("knex");
         database: "association_db"
     },
     ssl: true
-});*/
-let sqlDb = sqlDbFactory({
+});
+/*let sqlDb = sqlDbFactory({
     //debug: true,
     client: "postgres",
     connection: {
@@ -27,13 +26,12 @@ let sqlDb = sqlDbFactory({
         database: "d75uevfb6avc3b"
     },
     ssl: true
-});
+});*/
 function setupDataLayer() {
     console.log("Setting up Data Layer");
     peopleDbSetup(sqlDb);
     servicesDbSetup(sqlDb);
     sponsorsDbSetup(sqlDb);
-    usersDbSetup(sqlDb);
     return eventsDbSetup(sqlDb);
 }
 module.exports = { database: sqlDb, setupDataLayer };

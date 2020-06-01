@@ -76,11 +76,11 @@ exports.eventsEventIdGET = function(eventId) {
  * List of Events available on the Association
  *
  * search String Generic text search (optional)
- * ref_name String Reference contact name (optional)
- * ref_surname String Reference contact surname (optional)
+ * refName String Reference contact name (optional)
+ * refSurname String Reference contact surname (optional)
  * returns List
  **/
-exports.eventsGET = function(search, ref_name, ref_surname) {
+exports.eventsGET = function(search, refName, refSurname) {
   var query = sqlDb('event as e').join('person as p', 'p.id', 'e.contact_reference')
   .select({
     //Event
@@ -109,16 +109,16 @@ exports.eventsGET = function(search, ref_name, ref_surname) {
   if(search != null){
     query = query.where("e.name", "like", "%"+search+"%");
   } 
-  //ref_name,ref_surname Parameters
+  //refName,refSurname Parameters
   else {
-    if(ref_name != null){
-      query = query.where("p.name", "like", "%"+ref_name+"%");
+    if(refName != null){
+      query = query.where("p.name", "like", "%"+refName+"%");
 
-      if(ref_surname != null){
-        query = query.andWhere("p.surname", "like", "%"+ref_surname+"%");
+      if(refSurname != null){
+        query = query.andWhere("p.surname", "like", "%"+refSurname+"%");
       }
-    } else if(ref_surname != null){
-      query = query.where("p.surname", "like", "%"+ref_surname+"%");
+    } else if(refSurname != null){
+      query = query.where("p.surname", "like", "%"+refSurname+"%");
     }
   }
 
