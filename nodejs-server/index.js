@@ -38,8 +38,8 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
 
   // Serve the Swagger documents and Swagger UI
   var uiOptions = {
-    apiDocs: '/backend/api-docs',
-    swaggerUi: '/backend/swaggerui'
+    apiDocs: path.join(__dirname, '/backend/api-docs'), 
+    swaggerUi: path.join(__dirname, '/backend/swaggerui')
   }
   app.use(middleware.swaggerUi(uiOptions));
 
@@ -48,30 +48,11 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   //app.use(serveStatic(__dirname + "/www"));           //Local
   app.use(serveStatic(process.env.PWD + '/www'));       //Heroku
 
-  // Initialize the Swagger middleware
-  /*swaggerTools.initializeMiddleware(swaggerDoc, function(middleware) {
-    // ...
-    setupDataLayer().then(() => {
-      // Start the server
-      http.createServer(app).listen(serverPort, function() {
-        console.log(
-          "Your server is listening on port %d (http://localhost:%d)",
-          serverPort,
-          serverPort
-        );
-        console.log(
-          "Swagger-ui is available on http://localhost:%d/backend/swaggerui/",
-          serverPort
-        );
-      });
-    });
-  });*/
-
   // Start the server
   setupDataLayer().then(() => {
     http.createServer(app).listen(serverPort, function () {
       console.log('Your server is listening on port %d (http://localhost:%d)', serverPort, serverPort);
-      console.log('Swagger-ui is available on http://localhost:%d/docs', serverPort);
+      console.log('Swagger-ui is available on http://localhost:%d/backend/swaggerui/', serverPort);
     });
   });
 
