@@ -20,8 +20,8 @@ var options = {
 };
 
 // The Swagger document (require it, build it programmatically, fetch it from a URL, ...)
-//var spec = fs.readFileSync(path.join(__dirname,'api/swagger.yaml'), 'utf8');
-var spec = fs.readFileSync(path.join(__dirname,'www/backend/spec.yaml'), 'utf8');
+var spec = fs.readFileSync(path.join(__dirname,'api/swagger.yaml'), 'utf8');
+//var spec = fs.readFileSync(path.join(__dirname,'www/backend/spec.yaml'), 'utf8');
 var swaggerDoc = jsyaml.safeLoad(spec);
 
 // Initialize the Swagger middleware
@@ -37,7 +37,8 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   app.use(middleware.swaggerRouter(options));
 
   // Serve the Swagger documents and Swagger UI
-  /*var uiOptions = {
+  /*
+  var uiOptions = {
     apiDocs: '/backend/api-docs',
     swaggerUi: '/backend/swaggerui'
   }
