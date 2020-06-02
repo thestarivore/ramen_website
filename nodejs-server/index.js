@@ -38,15 +38,15 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
 
   // Serve the Swagger documents and Swagger UI
   var uiOptions = {
-    apiDocs: path.join(__dirname, '/backend/api-docs'), 
-    swaggerUi: path.join(__dirname, '/backend/swaggerui')
+    apiDocs: '/backend/api-docs',
+    swaggerUi: '/backend/swaggerui'
   }
   app.use(middleware.swaggerUi(uiOptions));
 
   //Serve the static assets from the /www flder
   process.env.PWD = process.cwd()
   //app.use(serveStatic(__dirname + "/www"));           //Local
-  app.use(serveStatic(process.env.PWD + '/www'));       //Heroku
+  //app.use(serveStatic(process.env.PWD + '/www'));       //Heroku
 
   // Start the server
   setupDataLayer().then(() => {
