@@ -37,11 +37,12 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   app.use(middleware.swaggerRouter(options));
 
   // Serve the Swagger documents and Swagger UI
-  var uiOptions = {
+  /*var uiOptions = {
     apiDocs: '/backend/api-docs',
     swaggerUi: '/backend/swaggerui'
   }
-  app.use(middleware.swaggerUi(uiOptions));
+  app.use(middleware.swaggerUi(uiOptions));*/
+  app.use(middleware.swaggerUi());
 
   //Serve the static assets from the /www flder
   process.env.PWD = process.cwd()
