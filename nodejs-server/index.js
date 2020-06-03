@@ -24,6 +24,11 @@ var options = {
 var spec = fs.readFileSync(path.join(__dirname,'www/backend/spec.yaml'), 'utf8');
 var swaggerDoc = jsyaml.safeLoad(spec);
 
+//Serve the static assets from the /www flder
+process.env.PWD = process.cwd()
+//app.use(serveStatic(__dirname + "/www"));           //Local
+app.use(serveStatic(process.env.PWD + '/www'));       //Herokuze
+
 // Initialize the Swagger middleware
 swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
 
@@ -42,11 +47,6 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
     swaggerUi: '/backend/swaggerui'
   }
   app.use(middleware.swaggerUi(uiOptions));
-
-  //Serve the static assets from the /www flder
-  process.env.PWD = process.cwd()
-  //app.use(serveStatic(__dirname + "/www"));           //Local
-  app.use(serveStatic(process.env.PWD + '/www'));       //Heroku
 
   // Start the server
   setupDataLayer().then(() => {
