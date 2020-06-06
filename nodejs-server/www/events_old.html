@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Ramen Association</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="home.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  <link href="css/lux.css" rel="stylesheet" />
+   
+</head>
+
+<body class="bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  
+  <div class="container-fluid">
+    <a class="navbar-brand  mr-auto col-sm-3 justify-content-center" href="#">THE RAMEN ASSOCIATION</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarColor01">
+       <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">ASSOCIATION</a>
+          <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 39px, 0px); top: 0px; left: 0px; will-change: transform;">
+            <a class="dropdown-item" href="#">MISSION & HISTORY</a>
+            <a class="dropdown-item" href="#">MEDIA</a>
+            <a class="dropdown-item" href="#">STRUCTURE</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">SERVICES</a>
+          <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 39px, 0px); top: 0px; left: 0px; will-change: transform;">
+            <a class="dropdown-item" href="#">TALKS</a>
+            <a class="dropdown-item" href="#">WORKSHOPS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">EVENTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">PEOPLE</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">FOUNDERS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">SPONSORS</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+    </div>
+
+    <div class="col-sm-9">
+      <h1 class="text-light text-center">EVENTS</h1>
+      
+      <div class="row" id="evets_row_list">
+        <!--<div class="col-sm-4">
+          <div class="card">
+            <img src="images/ramen_dish1.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <img src="images/ramen_dish2.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <img src="images/ramen_dish3.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        -->
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid navbar-dark bg-primary">
+  <div class="row">
+    <div class="col-sm-3">
+      <h1 class="text-warning">INFORMATIONS</h1>
+      <a href="#"><h6 class="text-secondary">FAQs</h6></a>
+      <a href="#"><h6 class="text-secondary">CONTECT US</h6></a>
+      <a href="#"><h6 class="text-secondary">JOIN THE NEWSLETTER</h6></a>
+    </div>
+  </div>
+
+</footer>
+
+</body>
+
+<script>
+  //var myEventsList = document.querySelector("ul");
+  const container = document.getElementById('evets_row_list');
+
+  fetch("v2/events")
+      .then(function(response) {
+          if (!response.ok) {
+              throw new Error("HTTP error, status = " + response.status);
+          }
+          return response.json();
+      })
+      .then(function(json) {
+          for (var i = 0; i < json.length; i++) {
+              var listItem = document.createElement("li");
+              let { id, name, img, description, contact_reference } = json[i];
+              listItem.innerHTML = `${id} - ${name} - ${description} - ${contact_reference.name}`;
+              //myEventsList.appendChild(listItem);
+
+              // Create card element
+              const card = document.createElement('div');
+              card.classList = 'card-body';
+
+              // Construct card content
+              const content = `
+                <div class="col-sm-4">
+                  <div class="card">
+                    <img src="${img}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">${name}</h5>
+                      <p class="card-text">${description}</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+                </div>
+              `;
+
+              // Append newyly created card element to the container
+              container.innerHTML += content;
+          }
+      });
+  
+</script>
+
+</html>
