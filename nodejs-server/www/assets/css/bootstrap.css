@@ -5623,6 +5623,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   list-style: none;
   background-color: transparent;
   margin-bottom: 0px;
+  justify-content: center;
 }
 
 .breadcrumb-item {
