@@ -8,12 +8,9 @@ module.exports.eventsEventIdGET = function eventsEventIdGET (req, res, next) {
 
   Event.eventsEventIdGET(eventId)
     .then(function (response) {
-      if(response.length > 0)
+      if(response.length >= 0)
         utils.writeJson(res, response, 200);
-      else if(response.length == 0){ 
-        response[0] = "Not Found. You requested a resource that could not be found or does not exist.";
-        utils.writeJson(res, response, 404);
-      } else {
+      else {
         response[0] = "Internal server error.";
         utils.writeJson(res, response, 500);
       }
@@ -29,12 +26,9 @@ module.exports.eventsGET = function eventsGET (req, res, next) {
   var ref_surname = req.swagger.params['refSurname'].value;
   Event.eventsGET(search,ref_name,ref_surname)
     .then(function (response) {
-      if(response.length > 0)
+      if(response.length >= 0)
         utils.writeJson(res, response, 200);
-      else if(response.length == 0){ 
-        response[0] = "Not Found. You requested a resource that could not be found or does not exist.";
-        utils.writeJson(res, response, 404);
-      } else {
+      else {
         response[0] = "Internal server error.";
         utils.writeJson(res, response, 500);
       }
@@ -48,12 +42,9 @@ module.exports.eventsReferenceGET = function eventsReferenceGET (req, res, next)
   var event_id = req.swagger.params['eventId'].value;
   Event.eventsReferenceGET(event_id)
     .then(function (response) {
-      if(response.length > 0)
+      if(response.length >= 0)
         utils.writeJson(res, response, 200);
-      else if(response.length == 0){ 
-        response[0] = "Not Found. You requested a resource that could not be found or does not exist.";
-        utils.writeJson(res, response, 404);
-      } else {
+      else {
         response[0] = "Internal server error.";
         utils.writeJson(res, response, 500);
       }
@@ -67,12 +58,9 @@ module.exports.eventsSponsorsGET = function eventsSponsorsGET (req, res, next) {
   var event_id = req.swagger.params['eventId'].value;
   Event.eventsSponsorsGET(event_id)
     .then(function (response) {
-      if(response.length > 0)
+      if(response.length >= 0)
         utils.writeJson(res, response, 200);
-      else if(response.length == 0){ 
-        response[0] = "Not Found. You requested a resource that could not be found or does not exist.";
-        utils.writeJson(res, response, 404);
-      } else {
+      else {
         response[0] = "Internal server error.";
         utils.writeJson(res, response, 500);
       }
