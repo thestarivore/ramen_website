@@ -30,6 +30,11 @@ Promise.all([
         let { id, name, img, description, contact_reference, location, city} = result[0];
         //listItem.innerHTML = `${id} - ${name} - ${description} - ${contact_reference.name}`;
 
+        //Create/Complete the Breadcrumb
+        const bcontainer = document.getElementById('event_breadcrumb_page');
+        const bcontent = `<span>${name}</span>`;
+        bcontainer.innerHTML += bcontent;
+
         // Construct card content
         const content = `
           <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">

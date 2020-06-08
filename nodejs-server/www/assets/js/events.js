@@ -18,14 +18,17 @@ fetch("v2/events")
             // Construct card content
             const content = `
               <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" style="padding: 15px 30px;">
-                <div class="card"><img class="card-img-top w-100 d-block" src="${img}">
-                    <div class="card-body">
-                      <p class="text-right card-text" style="margin: 0PX 0PX;">Event type</p>
-                      <h4 class="card-title">${name}</h4>
-                      <p>${desc}</p>
-                      <button class="btn btn-primary btn-block" type="button">SEE MORE</button>
-                    </div>
+                <div class="card">
+                  <img class="card-img-top" src="${img}">
+                  <div class="card-body">
+                    <p class="text-right card-text" style="margin: 0PX 0PX;">Event type</p>
+                    <h4 class="card-title">${name}</h4>
+                    <p>${desc}</p>
+                    <button class="btn btn-primary btn-block" type="button">
+                      <a href="event.html?event_id=${id}" class="btn btn-primary text-right">SEE MORE</a>
+                    </button>
                   </div>
+                </div>
               </div>
             `;
 
