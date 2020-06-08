@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="assets/css/Team-Grid.css">
 </head>
 
-<body style="background-color: #ffffff;">
+<body>
     <nav class="navbar navbar-dark navbar-expand-xl fixed-top bg-primary" style="max-height: 90px;">
         <div class="container-fluid">
             <div class="d-flex flex-grow-1 justify-content-between"><a class="navbar-brand" href="index.html">THE RAMEN ASSOCIATION</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
@@ -70,13 +70,28 @@
             </div>
         </div>
         <div class="col-md-10">
-            <div class="container-fluid" style="padding-top: 20px;margin-top: 0px;padding-right: 40px;padding-left: 40px;">
+            <div class="container-fluid justify-content-center" style="padding-top: 20px;margin-top: 0px;padding-right: 40px;padding-left: 40px;">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html"><span>Home</span></a></li>
-                    <li class="breadcrumb-item active"><span>Events</span></li>
+                    <li class="breadcrumb-item active"><span>Services</span></li>
                 </ol>
-                <div class="row" id="events_row_list">
-
+                <div class="row">
+                    <div class="col">
+                        <h1 class="display-4 text-center"><a href="#">talks</a>&nbsp;/&nbsp;<a href="#">workshops</a>&nbsp;</h1>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-8">
+                        <p>Paragraph</p>
+                    </div>
+                </div>
+                <div class="row" style="padding: 20px 0px;">
+                    <div class="col-6 justify-content-center"><img class="img-fluid" src="assets/img/RAMEN.png" style="padding-bottom: 20px;">
+                        <h5 class="text-right"><a href="#">talks &gt;&gt;&gt;</a></h5>
+                    </div>
+                    <div class="col-6 justify-content-center"><img class="img-fluid" src="assets/img/RAMEN.png" style="padding-bottom: 20px;">
+                        <h5 class="text-right"><a href="#"><strong>&nbsp;workshops &gt;&gt;&gt;</strong></a><br></h5>
+                    </div>
                 </div>
             </div>
         </div>
@@ -101,9 +116,6 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-
-    <!--Call the JS Script to create the dynamic content of the page-->
-    <script type="text/javascript" src="assets/js/events.js"></script>
 </body>
 
 </html>

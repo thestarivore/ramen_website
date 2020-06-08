@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="assets/css/Team-Grid.css">
 </head>
 
-<body style="background-color: #ffffff;">
+<body>
     <nav class="navbar navbar-dark navbar-expand-xl fixed-top bg-primary" style="max-height: 90px;">
         <div class="container-fluid">
             <div class="d-flex flex-grow-1 justify-content-between"><a class="navbar-brand" href="index.html">THE RAMEN ASSOCIATION</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
@@ -70,13 +70,49 @@
             </div>
         </div>
         <div class="col-md-10">
-            <div class="container-fluid" style="padding-top: 20px;margin-top: 0px;padding-right: 40px;padding-left: 40px;">
+            <div class="container-fluid justify-content-center" style="padding-top: 20px;margin-top: 0px;padding-right: 40px;padding-left: 40px;">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html"><span>Home</span></a></li>
-                    <li class="breadcrumb-item active"><span>Events</span></li>
+                    <li class="breadcrumb-item"><a href="people.html"><span>People</span></a></li>
+                    <li class="breadcrumb-item active"><span>Name Surname</span></li>
                 </ol>
-                <div class="row" id="events_row_list">
-
+                <div class="intro">
+                    <h1 class="display-4 text-center">NAME SURNAME</h1>
+                    <p class="lead text-center">ROLE</p>
+                </div>
+                <div class="row d-inline-flex justify-content-center">
+                    <div class="col-auto" style="padding-right: 0px;padding-left: 0px;"><img src="assets/img/2.jpg" style="padding-bottom: 20px;"></div>
+                    <div class="col-xl-6 align-items-stretch">
+                        <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu felis eget ligula pharetra bibendum. Proin eu est accumsan, euismod enim in, finibus sem. Fusce suscipit erat eget libero blandit, eget rutrum neque scelerisque.
+                            In ipsum tellus, egestas in dolor et, finibus congue eros. Quisque accumsan metus id vestibulum ultrices. Nam interdum, diam sit amet pulvinar rutrum, erat odio convallis tellus, non posuere ante lacus quis purus. Maecenas
+                            ac fringilla orci. Duis sed nisi lacus. Duis varius sapien dui, sit amet aliquet lacus ornare imperdiet. Sed at sem ac nunc varius mollis eget ut ligula. Vivamus dui nisi, varius blandit mi ac, semper posuere justo. Mauris
+                            molestie bibendum turpis, sit amet rhoncus nibh aliquet vel. Donec eget vehicula neque, accumsan mattis ante. Nam efficitur turpis at magna ultrices sagittis. Nunc consectetur pharetra quam at iaculis.</p>
+                        <h4>Contacts</h4>
+                        <p class="lead">E-mail:<br>Phone:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="padding: 20px 40px;">
+                <div class="intro">
+                    <h2 class="text-center">RELATED EVENTS</h2>
+                    <p class="text-center">DESCRIPTION</p>
+                </div>
+                <div class="card-columns d-sm-inline d-lg-flex justify-content-center" style="padding-top: 4PX;">
+                    <div class="card"><img class="card-img-top w-100 d-block" src="assets/img/loft.jpg">
+                        <div class="card-body">
+                            <h4 class="card-title">EVENT 1</h4>
+                            <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary btn-block" type="button">Button</button></div>
+                    </div>
+                    <div class="card"><img class="card-img-top w-100 d-block" src="assets/img/minibus.jpeg">
+                        <div class="card-body">
+                            <h4 class="card-title">EVENT 2</h4>
+                            <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary btn-block" type="button">Button</button></div>
+                    </div>
+                    <div class="card"><img class="card-img-top w-100 d-block" src="assets/img/building.jpg">
+                        <div class="card-body">
+                            <h4 class="card-title">EVENT 3</h4>
+                            <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary btn-block" type="button">Button</button></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -101,9 +137,6 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-
-    <!--Call the JS Script to create the dynamic content of the page-->
-    <script type="text/javascript" src="assets/js/events.js"></script>
 </body>
 
 </html>
