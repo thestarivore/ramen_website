@@ -373,6 +373,9 @@ definitions:
       img:
         type: "string"
         example: "/pictures/noodles_service"
+      type:
+        type: "string"
+        example: "t"
       date:
         type: "string"
         example: "12-05-2020 12:00:00"
@@ -385,6 +388,7 @@ definitions:
       img: "/pictures/noodles_service"
       name: "Teach how to do noodles"
       description: "Teaching how to make noodles from the best cooks."
+      type: "t"
       event:
         contact_reference:
           birthday: "31-05-1990"

@@ -23,6 +23,7 @@ exports.servicesGET = function(search) {
     img : "s.img",
     name : "s.name",
     description : "s.description",
+    type : "s.type",
     //Event
     eDate: "e.date",
     eImg: "e.img",
@@ -56,6 +57,7 @@ exports.servicesGET = function(search) {
             "img" : s.img,
             "name" : s.name,
             "description" : s.description,
+            "type" : s.type,
             "event" : {
               "contact_reference" : {
                 "birthday" : s.pBirthday,
