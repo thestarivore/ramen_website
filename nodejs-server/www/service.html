@@ -80,14 +80,13 @@
                     <h1 class="display-4 text-center">Service</h1>
                 </div>
                 <div class="row d-inline-flex justify-content-center">
-                    <div class="col-12 d-xl-flex justify-content-xl-center" style="padding-right: 0px;padding-left: 0px;"><img class="img-fluid" src="assets/img/desk.jpg" style="padding-bottom: 20px;"></div>
+                    <div class="col-12 d-xl-flex justify-content-xl-center" style="padding-right: 0px;padding-left: 0px;"><img class="img-fluid" style="padding-bottom: 20px;" id="service_img"></div>
                     <div class="col-12 align-items-stretch">
-                        <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu felis eget ligula pharetra bibendum. Proin eu est accumsan, euismod enim in, finibus sem. Fusce suscipit erat eget libero blandit, eget rutrum neque scelerisque.
-                            In ipsum tellus, egestas in dolor et, finibus congue eros. Quisque accumsan metus id vestibulum ultrices. Nam interdum, diam sit amet pulvinar rutrum, erat odio convallis tellus, non posuere ante lacus quis purus. Maecenas
-                            ac fringilla orci. Duis sed nisi lacus. Duis varius sapien dui, sit amet aliquet lacus ornare imperdiet. Sed at sem ac nunc varius mollis eget ut ligula. Vivamus dui nisi, varius blandit mi ac, semper posuere justo. Mauris
-                            molestie bibendum turpis, sit amet rhoncus nibh aliquet vel. Donec eget vehicula neque, accumsan mattis ante. Nam efficitur turpis at magna ultrices sagittis. Nunc consectetur pharetra quam at iaculis.</p>
+                        <p class="text-justify" id="service_description"></p>
                         <h4>Contact of reference</h4>
-                        <p class="lead">Name:<br>E-mail:<br>Phone:</p>
+                        <p class="lead" id="service_name">Name:<br></p>
+                        <p class="lead" id="service_email">E-mail:<br></p>
+                        <p class="lead" id="service_phone">Phone:</p>
                     </div>
                 </div>
             </div>
@@ -148,6 +147,9 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--Call the JS Script to create the dynamic content of the page-->
+    <script type="text/javascript" src="assets/js/service.js"></script>
 </body>
 
 </html>

@@ -14,8 +14,6 @@ exports.servicesDbSetup = function(s) {
  **/
 exports.servicesGET = function(search) {
   var query = sqlDb('service as s')
-  .join('event as e', 'e.id', 's.event')
-  .join('person as p', 'p.id', 'e.contact_reference')
   .select({
     //Service
     date : "s.date",
@@ -24,26 +22,6 @@ exports.servicesGET = function(search) {
     name : "s.name",
     description : "s.description",
     type : "s.type",
-    //Event
-    eDate: "e.date",
-    eImg: "e.img",
-    eCity: "e.city",
-    eName: "e.name",
-    eDescription: "e.description",
-    eLocation: "e.location",
-    eId: "e.id",
-    eMaxParticipants: "e.max_participants",
-    //Person
-    pBirthday :"p.birthday",
-    pImg:"p.img",
-    pRole:"p.role",
-    pGender:"p.gender",
-    pPhone:"p.phone",
-    pSurname:"p.surname",
-    pName:"p.name",
-    pDescription:"p.description",
-    pId:"p.id",
-    pEmail:"p.email",
   });
   
   //search Parameter
@@ -58,28 +36,6 @@ exports.servicesGET = function(search) {
             "name" : s.name,
             "description" : s.description,
             "type" : s.type,
-            "event" : {
-              "contact_reference" : {
-                "birthday" : s.pBirthday,
-                "img" : s.pImg,
-                "role" : s.pRole,
-                "gender" : s.pGender,
-                "phone" : s.pPhone,
-                "surname" : s.pSurname,
-                "name" : s.pName,
-                "description" : s.pDescription,
-                "id" : s.pId,
-                "email" : s.pEmail
-              },
-              "date" : s.eDate,
-              "img" : s.eImg,
-              "city" : s.eCity,
-              "name" : s.eName,
-              "description" : s.eDescription,
-              "location" : s.eLocation,
-              "id" : s.eId,
-              "max_participants" : s.eMaxParticipants
-            }
           }
       return s;
     })
@@ -132,3 +88,83 @@ exports.servicesPeopleGET = function(serviceName) {
   });
 }
 
+/**
+ * List of the Events that offer this Service
+ *
+ * serviceName String Service's name
+ * returns List of Events
+ **/
+exports.servicesEventsGET = function(serviceName) {
+  var query = sqlDb('service as s')
+  .join('event as e', 's.name', 'e.service')
+  .join('person as p', 'p.id', 'e.contact_reference')
+  .select({
+    //Event
+    eDate: "e.date",
+    eImg: "e.img",
+    eCity: "e.city",
+    eName: "e.name",
+    eDescription: "e.description",
+    eLocation: "e.location",
+    eId: "e.id",
+    eMax_participants: "e.max_participants",
+    //Person
+    pBirthday :"p.birthday",
+    pImg:"p.img",
+    pRole:"p.role",
+    pGender:"p.gender",
+    pPhone:"p.phone",
+    pSurname:"p.surname",
+    pName:"p.name",
+    pDescription:"p.description",
+    pId:"p.id",
+    pEmail:"p.email",
+    //Service
+    sDate : "s.date",
+    sMission : "s.mission",
+    sImg : "s.img",
+    sName : "s.name",
+    sDescription : "s.description",
+    sType : "s.type",
+  });
+  
+  //serviceName Parameter
+  if(serviceName != null)
+    query = query.where("s.name", "like", "%"+serviceName+"%");
+
+  return query.then(data => {
+    return data.map( e => {
+      e = { 
+            "contact_reference" : {
+              "birthday" : e.pBirthday,
+              "img" : e.pImg,
+              "role" : e.pRole,
+              "gender" : e.pGender,
+              "phone" : e.pPhone,
+              "surname" : e.pSurname,
+              "name" : e.pName,
+              "description" : e.pDescription,
+              "id" : e.pId,
+              "email" : e.pEmail
+            },
+            "date": e.eDate,
+            "img": e.eImg,
+            "city": e.eCity,
+            "name": e.eName,
+            "description": e.eDescription,
+            "location": e.eLocation,
+            "id": e.eId,
+            "max_participants": e.eMax_participants,
+            "service" : {
+              "date" : e.sDate,
+              "mission" : e.sMission,
+              "img" : e.sImg,
+              "name" : e.sName,
+              "description" : e.sDescription,
+              "type" : e.sType,
+            }
+          }
+      return e;
+    })
+  });
+}
