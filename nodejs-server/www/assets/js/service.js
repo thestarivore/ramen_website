@@ -1,90 +1,73 @@
 //Getting the URL passed parameter
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const person_id = urlParams.get('person_id')
+const selectedServiceName = urlParams.get('service_name')
 
-//Fetch the content of the Event and dynamically create the page
-const container = document.getElementById('person_content');
+//Fetch the content of the Service and dynamically create the page
+const serviceImgContainer         = document.getElementById('service_img');
+const serviceNameContainer        = document.getElementById('service_name');
+const serviceDescriptionContainer = document.getElementById('service_description');
+const serviceMissionContainer     = document.getElementById('service_mission');
+const breadcrumbContainer         = document.getElementById('breadcrumb_service_type');
+
+
+//Fetch the content of the Service's Related Events and dynamically create the page
+const eventsListContainer = document.getElementById('related_events_cards');
 
 
 Promise.all([
-  fetch("v2/service/"+person_id),
-  fetch("v2/events")                 //Right now we search the person in each event //TODO:Create API v2/people/events
-])
-//fetch("v2/events/"+event_id)
-    .then(function(responses) {
-        if (!responses[0].ok || !responses[1].ok) {
-            throw new Error("HTTP error, status1 = " + responses[0].status + ", status2 = " + responses[1].status);
-        }
-        //return response.json();
+  fetch("v2/services/?search=" + selectedServiceName),
+  fetch("v2/services/events/?serviceName=" + selectedServiceName)            
+]).then(function(responses) {
+      if (!responses[0].ok || !responses[1].ok) {
+          throw new Error("HTTP error, status1 = " + responses[0].status + ", status2 = " + responses[1].status);
+      }
+      return responses.map(function (response) {
+        return response.json();
+      });
+  })
+  .then(function(json) {
+    //Service Fetch promise
+    json[0].then(function(result) {   
+      //var listItem = document.createElement("li");
+      let {name, description, mission, img, type, date} = result[0];
 
-        return responses.map(function (response) {
-          return response.json();
-        });
-    })
-    .then(function(json) {
-      //Person Fetch promise
-      json[0].then(function(result) {   
-        //var listItem = document.createElement("li");
-        let {id, name, surname, img, description, role, email, phone} = result[0];
-        //listItem.innerHTML = `${id} - ${name} - ${description} - ${contact_reference.name}`;
+      // Append newyly fetched info about the service to the containers
+      serviceImgContainer.innerHTML += img;
+      serviceNameContainer.innerHTML += selectedServiceName;
+      serviceDescriptionContainer.innerHTML += description;
+      serviceMissionContainer.innerHTML += mission;
 
-        //Create/Complete the Breadcrumb
-        const bcontainer = document.getElementById('person_breadcrumb_page');
-        const bcontent = `<span>${name} ${surname}</span>`;
-        bcontainer.innerHTML += bcontent;
+      if(type == "t")
+        breadcrumbContainer.innerHTML += "<a href='talks.html'><span>Talks</span></a>";
+      else if(type == "w")
+        breadcrumbContainer.innerHTML += "<a href='workshops.html'><span>Workshops</span></a>";
+    });
+
+    //Events Fetch promise
+    json[1].then(function(result) { 
+      for (var i = 0; i < result.length; i++) {
+        let { id, name, img, description, contact_reference } = result[i];
+        var desc = description.substr(1, 250) + ".."
 
         // Construct card content
         const content = `
-          <div class="intro">
-            <h1 class="display-4 text-center">${name} ${surname}</h1>
-            <p class="lead text-center">${role}</p>
-          </div>
-          <div class="row d-inline-flex justify-content-center">
-            <div class="col-auto" style="padding-right: 0px;padding-left: 0px;"><img src="${img}" style="padding-bottom: 20px;"></div>
-            <div class="col-xl-6 align-items-stretch">
-              <p class="text-justify">${description}</p>
-              <h4>Contacts</h4>
-              <p class="lead">E-mail: ${email}<br>Phone: ${phone}</p>
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" style="padding: 15px 30px;">
+            <div class="card">
+              <img class="card-img-top" src="${img}">
+              <div class="card-body">
+                <h4 class="card-title">${name}</h4>
+                <p>${desc}</p>
+                <button class="btn btn-primary btn-block" type="button">
+                  <a href="event.html?event_id=${id}" class="btn btn-primary text-right">SEE MORE</a>
+                </button>
+              </div>
             </div>
           </div>
         `;
 
         // Append newyly created card element to the container
-        container.innerHTML += content;
-      });
-
-      //Events Fetch promise
-      json[1].then(function(result) { 
-        for (var i = 0; i < result.length; i++) {
-          let {id, name, img, description, contact_reference, location, city} = result[i];
-
-          //Get only the Events, where the current person is the contact reference
-          if(contact_reference.id == person_id){
-            //Fetch the content of the Sponsors and dynamically add them to the page
-            const pecontainer = document.getElementById('person_event_content');
-
-            var desc = description.substr(1, 250) + ".."
-
-            // Construct card content
-            const content = `
-              <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" style="padding: 15px 30px;">
-                <div class="card">
-                  <img class="card-img-top w-100 d-block" src="${img}">
-                  <div class="card-body">
-                    <h4 class="card-title">${name}</h4>
-                    <p class="card-text">${desc}</p>
-                    <button class="btn btn-primary btn-block" type="button">
-                      <a href="event.html?event_id=${id}" class="btn btn-primary text-right">SEE MORE</a>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            `;
-
-            // Append newyly created card element to the container
-            pecontainer.innerHTML += content;
-          }
-        }
-      });
+        eventsListContainer.innerHTML += content;
+      }
     });
+  });

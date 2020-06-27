@@ -21,7 +21,6 @@ fetch("v2/events")
                 <div class="card">
                   <img class="card-img-top" src="${img}">
                   <div class="card-body">
-                    <p class="text-right card-text" style="margin: 0PX 0PX;">Event type</p>
                     <h4 class="card-title">${name}</h4>
                     <p>${desc}</p>
                     <button class="btn btn-primary btn-block" type="button">
