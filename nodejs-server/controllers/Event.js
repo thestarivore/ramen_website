@@ -69,3 +69,19 @@ module.exports.eventsSponsorsGET = function eventsSponsorsGET (req, res, next) {
       utils.writeJson(res, response);
     });
 };
+
+module.exports.eventsServiceGET = function eventsServiceGET (req, res, next) {
+  var event_id = req.swagger.params['eventId'].value;
+  Event.eventsServiceGET(event_id)
+    .then(function (response) {
+      if(response.length >= 0)
+        utils.writeJson(res, response, 200);
+      else {
+        response[0] = "Internal server error.";
+        utils.writeJson(res, response, 500);
+      }
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};

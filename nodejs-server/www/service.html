@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/Team-Boxed.css">
     <link rel="stylesheet" href="assets/css/Team-Clean.css">
     <link rel="stylesheet" href="assets/css/Team-Grid.css">
+    <link rel="stylesheet" href="assets/css/Service.css">
 </head>
 
 <body>
@@ -35,7 +36,7 @@
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="association.html">association</a></li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="services.html">SERVICES&nbsp;</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">TALKS</a><a class="dropdown-item" role="presentation" href="#">WORKSHOPS</a></div>
+                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="talks.html">TALKS</a><a class="dropdown-item" role="presentation" href="workshops.html">WORKSHOPS</a></div>
                     </li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="events.html">EVENTS</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="people.html">PEOPLE</a></li>
@@ -73,30 +74,28 @@
             <div class="container-fluid justify-content-center" style="padding-top: 20px;margin-top: 0px;padding-right: 40px;padding-left: 40px;">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html"><span>Home</span></a></li>
-                    <li class="breadcrumb-item"><a href="people.html"><span>Services</span></a></li>
+                    <li class="breadcrumb-item"><a href="#"><span>Services</span></a></li>
+                    <li class="breadcrumb-item" id="breadcrumb_service_type"></li>
                     <li class="breadcrumb-item active"><span>Service</span></li>
                 </ol>
                 <div class="intro">
-                    <h1 class="display-4 text-center">Service</h1>
+                    <h1 class="display-4 text-center" id="service_name"></h1>
                 </div>
                 <div class="row d-inline-flex justify-content-center">
-                    <div class="col-12 d-xl-flex justify-content-xl-center" style="padding-right: 0px;padding-left: 0px;"><img class="img-fluid" src="assets/img/desk.jpg" style="padding-bottom: 20px;"></div>
+                    <div class="col-12 d-xl-flex justify-content-xl-center" style="padding-right: 0px;padding-left: 0px;"><img class="img-fluid" style="padding-bottom: 20px;" id="service_img"></div>
                     <div class="col-12 align-items-stretch">
-                        <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu felis eget ligula pharetra bibendum. Proin eu est accumsan, euismod enim in, finibus sem. Fusce suscipit erat eget libero blandit, eget rutrum neque scelerisque.
-                            In ipsum tellus, egestas in dolor et, finibus congue eros. Quisque accumsan metus id vestibulum ultrices. Nam interdum, diam sit amet pulvinar rutrum, erat odio convallis tellus, non posuere ante lacus quis purus. Maecenas
-                            ac fringilla orci. Duis sed nisi lacus. Duis varius sapien dui, sit amet aliquet lacus ornare imperdiet. Sed at sem ac nunc varius mollis eget ut ligula. Vivamus dui nisi, varius blandit mi ac, semper posuere justo. Mauris
-                            molestie bibendum turpis, sit amet rhoncus nibh aliquet vel. Donec eget vehicula neque, accumsan mattis ante. Nam efficitur turpis at magna ultrices sagittis. Nunc consectetur pharetra quam at iaculis.</p>
-                        <h4>Contact of reference</h4>
-                        <p class="lead">Name:<br>E-mail:<br>Phone:</p>
+                        <h4>Description</h4>
+                        <p class="text-justify" id="service_description"></p><br>
+                        <h4>Mission</h4>
+                        <p class="text-justify" id="service_mission"></p><br>
                     </div>
                 </div>
             </div>
             <div class="container-fluid" style="padding: 20px 40px;">
                 <div class="intro">
                     <h2 class="text-center">RELATED EVENTS</h2>
-                    <p class="text-center">DESCRIPTION</p>
                 </div>
-                <div class="card-columns d-sm-inline d-lg-flex justify-content-center" style="padding-top: 4PX;">
+                <!--<div class="card-columns d-sm-inline d-lg-flex justify-content-center" style="padding-top: 4PX;" id="related_events_cards">
                     <div class="card"><img class="card-img-top w-100 d-block" src="assets/img/loft.jpg">
                         <div class="card-body">
                             <h4 class="card-title">EVENT 1</h4>
@@ -112,8 +111,9 @@
                             <h4 class="card-title">EVENT 3</h4>
                             <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary btn-block" type="button">Button</button></div>
                     </div>
-                </div>
-                <nav class="d-flex justify-content-center">
+                </div>-->
+                <div class="row" id="related_events_cards"></div>
+                <!--<nav class="d-flex justify-content-center">
                     <ul class="pagination pagination-lg">
                         <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
                         <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -123,8 +123,8 @@
                         <li class="page-item"><a class="page-link" href="#">5</a></li>
                         <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
                     </ul>
-                </nav>
-                <h3 class="text-right" style="margin: 10px 0px;"><a href="#"><strong>ALL events &gt;&gt;&gt;</strong></a></h3>
+                </nav>-->
+                <h3 class="text-right" style="margin: 10px 0px;"><a href="events.html"><strong>ALL events &gt;&gt;&gt;</strong></a></h3>
             </div>
         </div>
     </div>
@@ -148,6 +148,9 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--Call the JS Script to create the dynamic content of the page-->
+    <script type="text/javascript" src="assets/js/service.js"></script>
 </body>
 
 </html>

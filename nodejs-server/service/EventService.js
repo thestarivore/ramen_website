@@ -21,7 +21,9 @@ exports.eventsDbSetup = function(s) {
  * returns Event
  **/
 exports.eventsEventIdGET = function(eventId) {
-  return sqlDb('event as e').join('person as p', 'p.id', 'e.contact_reference')
+  return sqlDb('event as e')
+  .join('service as s', 's.name', 'e.service')
+  .join('person as p', 'p.id', 'e.contact_reference')
   .select({
     //Event
     date: "e.date",
@@ -43,6 +45,13 @@ exports.eventsEventIdGET = function(eventId) {
     pDescription:"p.description",
     pId:"p.id",
     pEmail:"p.email",
+    //Service
+    sDate : "s.date",
+    sMission : "s.mission",
+    sImg : "s.img",
+    sName : "s.name",
+    sDescription : "s.description",
+    sType : "s.type",
   }).where("e.id",eventId).then(data => {
     return data.map( e => {
       e = {"contact_reference" : {
@@ -64,7 +73,16 @@ exports.eventsEventIdGET = function(eventId) {
           "description" : e.description,
           "location" : e.location,
           "id" : e.id,
-          "max_participants" : e.max_participants}
+          "max_participants" : e.max_participants,
+          "service" : {
+            "date" : e.sDate,
+            "mission" : e.sMission,
+            "img" : e.sImg,
+            "name" : e.sName,
+            "description" : e.sDescription,
+            "type" : e.sType,
+          }
+        }
       return e;
     })
   });
@@ -81,7 +99,9 @@ exports.eventsEventIdGET = function(eventId) {
  * returns List
  **/
 exports.eventsGET = function(search, refName, refSurname) {
-  var query = sqlDb('event as e').join('person as p', 'p.id', 'e.contact_reference')
+  var query = sqlDb('event as e')
+  .join('service as s', 's.name', 'e.service')
+  .join('person as p', 'p.id', 'e.contact_reference')
   .select({
     //Event
     date: "e.date",
@@ -103,6 +123,13 @@ exports.eventsGET = function(search, refName, refSurname) {
     pDescription:"p.description",
     pId:"p.id",
     pEmail:"p.email",
+    //Service
+    sDate : "s.date",
+    sMission : "s.mission",
+    sImg : "s.img",
+    sName : "s.name",
+    sDescription : "s.description",
+    sType : "s.type",
   });
 
   //search Parameter
@@ -124,7 +151,8 @@ exports.eventsGET = function(search, refName, refSurname) {
 
   return query.then(data => {
     return data.map( e => {
-      e = {"contact_reference" : {
+      e = {
+          "contact_reference" : {
             "birthday" : e.pBirthday,
             "img" : e.pImg,
             "role" : e.pRole,
@@ -143,12 +171,20 @@ exports.eventsGET = function(search, refName, refSurname) {
           "description" : e.description,
           "location" : e.location,
           "id" : e.id,
-          "max_participants" : e.max_participants}
+          "max_participants" : e.max_participants,
+          "service" : {
+            "date" : e.sDate,
+            "mission" : e.sMission,
+            "img" : e.sImg,
+            "name" : e.sName,
+            "description" : e.sDescription,
+            "type" : e.sType,
+          }
+        }
       return e;
     })
   });
 }
-
 
 /**
  * Contact reference for the Event
@@ -217,3 +253,31 @@ exports.eventsSponsorsGET = function(eventId) {
   });
 }
 
+/**
+ * Service offered by the Event
+ *
+ * eventId Integer Event's ID
+ * returns Service
+ **/
+exports.eventsServiceGET = function(eventId) {
+  return sqlDb('event as e').join('service as s', 's.name', 'e.service')
+  .select({
+    //Service
+    date : "s.date",
+    mission : "s.mission",
+    img : "s.img",
+    name : "s.name",
+    description : "s.description",
+    type : "s.type",
+  }).where("e.id",eventId).then(data => {
+    return data.map( s => {
+      s = { "date" : s.date,
+            "mission" : s.mission,
+            "img" : s.img,
+            "name" : s.name,
+            "description" : s.description,
+            "type" : s.type,}
+      return s;
+    })
+  });
+}

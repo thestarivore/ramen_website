@@ -143,6 +143,31 @@ paths:
         "500":
           description: "Internal server error."
       x-swagger-router-controller: "Event"
+  /events/service:
+    get:
+      tags:
+      - "event"
+      summary: "Service offered by Event"
+      description: "Returns the Service offered by the Event with the specified ID. The parameter **'eventId'** is mandatory."
+      operationId: "eventsServiceGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "eventId"
+        in: "query"
+        description: "Event's ID"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "The Service"
+          schema:
+            $ref: "#/definitions/Service"
+        "404":
+          description: "Not Found. You requested a resource that could not be found or does not exist."
+        "500":
+          description: "Internal server error."
+      x-swagger-router-controller: "Event"
   /services:
     get:
       tags:
@@ -194,6 +219,33 @@ paths:
             type: "array"
             items:
               $ref: "#/definitions/Person"
+        "404":
+          description: "Not Found. You requested a resource that could not be found or does not exist."
+        "500":
+          description: "Internal server error."
+      x-swagger-router-controller: "Service"
+  /services/events:
+    get:
+      tags:
+      - "service"
+      summary: "List of the Events that offer this Service"
+      description: "List of the Events that offer this Service with the specified name. The parameter **'serviceName'** is mandatory."
+      operationId: "servicesEventsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "serviceName"
+        in: "query"
+        description: "Service's name"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "The collection of Events"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
         "404":
           description: "Not Found. You requested a resource that could not be found or does not exist."
         "500":
@@ -294,6 +346,7 @@ definitions:
     required:
     - "city"
     - "contact_reference"
+    - "service"
     - "date"
     - "id"
     - "img"
@@ -327,6 +380,8 @@ definitions:
       date:
         type: "string"
         example: "12-05-2020 12:00:00"
+      service:
+        $ref: "#/definitions/Service"
     title: "Event"
     description: "An Event offered by the Association"
     example:
@@ -350,19 +405,24 @@ definitions:
       location: "Hotel PerfectNoodles"
       id: 0
       max_participants: 20
+      service:
+        name: "Teach how to do noodles"
+        date: "12-05-2020 12:00:00"
+        mission: "Offer the best cooking experience and best tasting experience regarding\
+          \ noodles"
+        img: "/pictures/noodles_service"
+        description: "Teaching how to make noodles from the best cooks."
+        type: "t"
   Service:
     type: "object"
     required:
     - "date"
-    - "event"
     - "img"
     - "name"
     properties:
       name:
         type: "string"
         example: "Teach how to do noodles"
-      event:
-        $ref: "#/definitions/Event"
       description:
         type: "string"
         example: "Teaching how to make noodles from the best cooks."
@@ -373,6 +433,9 @@ definitions:
       img:
         type: "string"
         example: "/pictures/noodles_service"
+      type:
+        type: "string"
+        example: "t"
       date:
         type: "string"
         example: "12-05-2020 12:00:00"
@@ -385,27 +448,7 @@ definitions:
       img: "/pictures/noodles_service"
       name: "Teach how to do noodles"
       description: "Teaching how to make noodles from the best cooks."
-      event:
-        contact_reference:
-          birthday: "31-05-1990"
-          img: "/pictures/ginomirtino"
-          role: "apprentice cook"
-          gender: "male"
-          phone: "3249412355"
-          surname: "Mirtino"
-          name: "Gino"
-          description: "apprentice cook, trying to help during the cooking events"
-          id: 6
-          email: "gino@gmail.com"
-        date: "12-05-2020 12:00:00"
-        img: "/pictures/noodles"
-        city: "Milan"
-        name: "How to make perfect noodles"
-        description: "A perfect opportunity to learn how to make noodles from the\
-          \ best noodles master."
-        location: "Hotel PerfectNoodles"
-        id: 0
-        max_participants: 20
+      type: "t"
   Person:
     type: "object"
     required:

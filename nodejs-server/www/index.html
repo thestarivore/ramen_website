@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/Team-Boxed.css">
     <link rel="stylesheet" href="assets/css/Team-Clean.css">
     <link rel="stylesheet" href="assets/css/Team-Grid.css">
+    <link rel="stylesheet" href="assets/css/Home-Page.css">
 </head>
 
 <body>
@@ -35,7 +36,7 @@
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="association.html">association</a></li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="services.html">SERVICES&nbsp;</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">TALKS</a><a class="dropdown-item" role="presentation" href="#">WORKSHOPS</a></div>
+                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="talks.html">TALKS</a><a class="dropdown-item" role="presentation" href="workshops.html">WORKSHOPS</a></div>
                     </li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="events.html">EVENTS</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="people.html">PEOPLE</a></li>
@@ -97,10 +98,10 @@
                         </div>
                         <div class="row justify-content-between projects">
                             <div class="col-sm-6 item"><img class="img-fluid" src="assets/img/desk.jpg">
-                                <h3 class="name">TALKS</h3>
+                                <h3 class="name"><a href='talks.html'><span>TALKS</span></a></h3>
                             </div>
                             <div class="col-sm-6 item"><img class="img-fluid" src="assets/img/building.jpg">
-                                <h3 class="name">WORKSHOPS</h3>
+                                <h3 class="name"><a href='workshops.html'><span>WORKSHOPS</span></a></h3>
                             </div>
                         </div>
                     </div>
@@ -113,8 +114,8 @@
                             <h2 class="text-center">UPCOMING EVENTS</h2>
                             <p class="text-center">DESCRIPTION</p>
                         </div>
-                        <div class="card-columns d-sm-inline d-md-inline-block" style="padding-top: 50PX;">
-                            <div class="card"><img class="card-img-top w-100 d-block" src="assets/img/loft.jpg">
+                        <div class="card-columns d-sm-inline d-md-inline-block" style="padding-top: 50PX;" id="upcoming_events">
+                            <!--<div class="card"><img class="card-img-top w-100 d-block" src="assets/img/loft.jpg">
                                 <div class="card-body">
                                     <h4 class="card-title">EVENT 1</h4>
                                     <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary btn-block" type="button">Button</button></div>
@@ -128,7 +129,7 @@
                                 <div class="card-body">
                                     <h4 class="card-title">EVENT 3</h4>
                                     <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary btn-block" type="button">Button</button></div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -140,8 +141,8 @@
                             <h2 class="text-center">FOUNDERS</h2>
                             <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
                         </div>
-                        <div class="row people">
-                            <div class="col-md-6 col-lg-4 item"><img class="rounded-circle" src="assets/img/1.jpg">
+                        <div class="row people" id="founders_list">
+                            <!--<div class="col-md-6 col-lg-4 item"><img class="rounded-circle" src="assets/img/1.jpg">
                                 <h3 class="name">Ben Johnson</h3>
                                 <p class="title">Musician</p>
                                 <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
@@ -158,7 +159,7 @@
                                 <p class="title">Stylist</p>
                                 <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
                                 <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -168,7 +169,15 @@
                     <div class="container-fluid brands">
                         <div class="intro">
                             <h2 class="text-center" style="padding-top: 40PX;margin-bottom: 6PX;">SPONSORED BY</h2>
-                        </div><a href="#"> <img src="assets/img/instacart.png"><img src="assets/img/kickstarter.png"><img src="assets/img/lyft.png"><img src="assets/img/shopify.png"><img src="assets/img/pinterest.png"><img src="assets/img/twitter.png"></a></div>
+                        </div>
+                        <!--<a href="#"> <img src="assets/img/instacart.png">
+                            <img src="assets/img/kickstarter.png">
+                            <img src="assets/img/lyft.png">
+                            <img src="assets/img/shopify.png">
+                            <img src="assets/img/pinterest.png">
+                            <img src="assets/img/twitter.png"></a>-->
+                        <div class="row" id="sponsors_list"></div>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -202,6 +211,9 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--Call the JS Script to create the dynamic content of the page-->
+    <script type="text/javascript" src="assets/js/homepage.js"></script>
 </body>
 
 </html>
