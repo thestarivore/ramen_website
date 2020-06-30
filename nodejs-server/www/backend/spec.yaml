@@ -446,6 +446,9 @@ definitions:
       gender:
         type: "string"
         example: "male"
+      is_founder:
+        type: "boolean"
+        example: false
     title: "Person"
     description: "A Person working for the Association"
     example:
@@ -459,6 +462,7 @@ definitions:
       description: "apprentice cook, trying to help during the cooking events"
       id: 6
       email: "gino@gmail.com"
+      is_founder: false
   Sponsor:
     type: "object"
     required:

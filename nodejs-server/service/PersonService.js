@@ -38,7 +38,8 @@ exports.peopleGET = function(name,surname) {
             "name" : p.name,
             "description" : p.description,
             "id" : p.id,
-            "email" : p.email}
+            "email" : p.email,
+            "is_founder" : p.is_founder}
       return p;
     })
   });
@@ -63,7 +64,8 @@ exports.peoplePersonIdGET = function(personId) {
             "name" : p.name,
             "description" : p.description,
             "id" : p.id,
-            "email" : p.email}
+            "email" : p.email,
+            "is_founder" : p.is_founder}
       return p;
     })
   });
