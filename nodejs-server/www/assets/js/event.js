@@ -47,13 +47,13 @@ Promise.all([
               </ul>
             </div>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-9 col-xl-9>
+          <div class="col-sm-6 col-md-6 col-lg-9 col-xl-9 >
             <div class="text-center">
               <div class="intro">
                   <h1 class="text-center">${name}</h1>
               </div>
 
-              <img src="${img}" class="event-img" alt="...">  
+              <div class="col-auto d-flex justify-content-center"><img src="${img}" class="event-img" alt="..."></div>
 
               <div class="text-justify"> 
                 <p>${description}</p>
@@ -66,9 +66,11 @@ Promise.all([
 
               </div>
             </div>
-              
-            <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary"> << Previous Event</a>
-            <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right"> Next Event >></a>
+            
+            <div class="row justify-content-around">
+              <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary"> << Previous Event</a>
+              <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right"> Next Event >></a>
+              </div>
               
           </div>
         `;
