@@ -48,12 +48,12 @@ Promise.all([
         if(is_founder){
             // Construct card content
             const content = `
-              <div class="col-md-6 col-lg-4 item"><img class="rounded-circle" src="${img}">
-                  <h3 class="name">${name}</h3>
-                  <p class="title">${role}</p>
-                  <p class="description">${desc}</p>
-                  <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-              </div>
+            <div class="col-md-6 col-lg-4 item"><img class="rounded-circle" src="${img}" href="person.html?person_id=${id}">
+              <a href="person.html?person_id=${id}"><h3 class="name">${name}</h3></a>
+              <p class="title">${role}</p>
+              <p class="description">${desc}</p>
+              <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+            </div>
             `;
 
             // Append newyly created card element to the container
