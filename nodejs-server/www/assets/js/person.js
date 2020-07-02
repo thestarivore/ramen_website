@@ -68,18 +68,14 @@ Promise.all([
 
             // Construct card content
             const content = `
-              <div class="card-columns d-sm-inline d-lg-flex justify-content-center">
-                <div class="card">
-                  <img class="card-img-top w-100 d-block" src="${img}">
-                  <div class="card-body">
-                  <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
-                    <p class="card-text">${desc}</p>
-                    <button class="btn btn-primary btn-block" type="button">
-                      <a href="event.html?event_id=${id}" class="btn btn-primary text-right">SEE MORE</a>
-                    </button>
-                  </div>
-                </div>
+            <div class="card">
+              <img class="card-img-top w-100 d-block" src="${img}">
+              <div class="card-body">
+                <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
+                <p class="card-text">${desc}</p>
+                <button class="btn btn-primary btn-block" href="event.html?event_id=${id}" type="button">SEE MORE</button>
               </div>
+            </div>
             `;
 
             // Append newyly created card element to the container
