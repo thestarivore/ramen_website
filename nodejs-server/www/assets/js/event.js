@@ -37,8 +37,7 @@ Promise.all([
 
         // Construct card content
         const content = `
-          
-          <div class="col-sm-12 col-lg-8>
+          <div class="col-sm-12 col-lg-8">
             <div class="text-center">
               <div class="intro">
                   <h1 class="text-center">${name}</h1>
