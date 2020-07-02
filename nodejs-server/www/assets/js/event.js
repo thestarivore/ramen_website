@@ -37,42 +37,36 @@ Promise.all([
 
         // Construct card content
         const content = `
-          <div class="col-sm-12 col-lg-8">
-            <div class="text-center">
-              <div class="intro">
-                  <h1 class="text-center">${name}</h1>
-            </div>
-
-            <div class="col-auto d-flex justify-content-center">
-              <img src="${img}" class="event-img" alt="...">
-            </div>
-
-            <div class="text-justify"> 
-              <p>${description}</p>
-              <p>LOCATION:</p>
-              <p>${location}, ${city}</p>
-
-              <p>SPONSORS:</p>
-              <div class="justify-content-around brands" id="event_sponsors">
-            </div>
-           
-            <div class="row justify-content-between">
-              <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary"> << Previous Event</a>
-              <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right"> Next Event >></a>
-            </div>
-              
-          </div>
-
-          <div class="col-sm-12 col-lg-4">
-            <div class="card">
-              <ul class="list-group list-group-flush" id="events_group_index">
-                <li class="list-group-item">
-                  <h4 class="card-title">Related Events</h4>
-                </li>
-          
-              </ul>
-            </div>
-          </div>
+        <div class="col-sm-12 col-lg-8">
+        <div class="intro"><h1 class="text-center">${name}</h1></div>
+        <div class="col-auto d-flex justify-content-center"><img src="${img}" class="event-img" alt="..."></div>
+    
+        <div class="text-justify"> 
+            <p>${description}</p>
+            <p>LOCATION:</p>
+            <p>${location}, ${city}</p>
+    
+            <p>SPONSORS:</p>
+            <div class="justify-content-center event-brands" id="event_sponsors">
+        </div>
+    
+        <div class="row justify-content-between">
+            <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary"> << Previous Event</a>
+            <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right"> Next Event >></a>
+        </div>
+            
+        </div>
+    </div>
+    <div class="col-sm-12 col-lg-4">
+    <div class="card">
+        <ul class="list-group list-group-flush" id="events_group_index">
+        <li class="list-group-item">
+            <h4 class="card-title">Related Events</h4>
+        </li>
+    
+        </ul>
+    </div>
+    </div>
         `;
 
         // Append newyly created card element to the container
