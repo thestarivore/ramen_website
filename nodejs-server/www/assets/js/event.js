@@ -37,40 +37,66 @@ Promise.all([
 
         // Construct card content
         const content = `
-          <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-            <div class="card">
-              <ul class="list-group list-group-flush" id="events_group_index">
-                <li class="list-group-item">
-                  <h4 class="card-title">Other Events</h4>
-                </li>
-          
-              </ul>
+        <div class="container-fluid justify-content-start justify-content-xl-center page-content">
+    <div class="row justify-content-between">
+        <div class="col-auto text-left d-flex justify-content-start align-items-center order-2 order-sm-1 order-md-1 order-lg-1 order-xl-1"><a href="event.html?event_id=${id}" id="previous_event_link">&lt;&lt;&lt; Prev Event</a></div>
+        <div class="col-12 col-sm-auto col-md-auto col-lg-auto col-xl-auto order-1 order-sm-2 order-md-2 order-lg-2 order-xl-2">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html"><span>Home</span></a></li>
+                <li class="breadcrumb-item"><a href="events.html"><span>Events</span></a></li>
+                <li class="breadcrumb-item active" id="event_breadcrumb_page"></li>
+            </ol>
+        </div>
+        <div class="col-auto text-right d-inline-flex justify-content-end align-items-center order-3"><a href="event.html?event_id=${id}" id="next_event_link">Next Event &gt;&gt;&gt;</a></div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <div class="row justify-content-center">
+                <div class="col-auto d-flex justify-content-center"><img class="img-fluid" src="${img}"></div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-9 col-xl-9>
-            <div class="text-center">
-              <div class="intro">
-                  <h1 class="text-center">${name}</h1>
-              </div>
-
-              <img src="${img}" class="event-img" alt="...">  
-
-              <div class="text-justify"> 
-                <p>${description}</p>
-                <p>LOCATION:</p>
-                <p>${location}, ${city}</p>
-
-                <p>SPONSORS:</p>
-                <div class="brands" id="event_sponsors">
+            <div class="row">
+                <div class="col">
+                    <h1 class="display-4 text-center">${name}</h1>
                 </div>
-
-              </div>
             </div>
-              
-            <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary"> << Previous Event</a>
-            <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right"> Next Event >></a>
-              
-          </div>
+            <div class="row justify-content-around page-block">
+                <div class="col-sm-12 col-lg-8 text-justify">
+                    <h4>workshop</h4>
+                    <p>${description}</p>
+                    <div class="row">
+                        <div class="col-2">
+                            <h5 class="text-left">where:</h5>
+                        </div>
+                        <div class="col-sm-4 justify-content-start">
+                            <p>${location}, ${city}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <h5 class="text-left">when:</h5>
+                        </div>
+                        <div class="col-sm-4 justify-content-start">
+                            <p>Paragraph</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-4 align-self-start">
+                    <h4 class="text-center">related events</h4>
+                    <div class="list-group" id="events_group_index"></div>
+                </div>
+            </div>
+            <div class="row justify-content-center page-block">
+                <div class="col">
+                    <h4 class="text-center">sponsors</h4>
+                    <div class="row brands" id="event_sponsors"></div>
+                    <div class="row map-clean">
+                        <div class="col"><iframe allowfullscreen="" frameborder="0" src="https://cdn.bootstrapstudio.io/placeholders/map.html" width="100%" height="450" style="margin-bottom: 40px;"></iframe></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
         `;
 
         // Append newyly created card element to the container
@@ -116,15 +142,15 @@ Promise.all([
           var content = "";
           if(i == currentIndex){
             content = `
-                <li class="list-group-item bg-primary">
-                  <a href="event.html?event_id=${id}" class="text-left text-white">${name}</a><br>
-                </li>
+            <button class="list-group-item list-group-item-action">
+              <span class="d-flex justify-content-center"><a href="event.html?event_id=${id}" class="text-left">${name}</a><br></span>
+            </button>
             `;
           } else {
             content = `
-                <li class="list-group-item">
-                  <a href="event.html?event_id=${id}" class="text-left">${name}</a><br>
-                </li>
+            <button class="list-group-item list-group-item-action bg-primary">
+              <span class="d-flex justify-content-center"><a href="event.html?event_id=${id}" class="text-left text-white">${name}</a><br></span>
+            </button>
             `;
           }
 

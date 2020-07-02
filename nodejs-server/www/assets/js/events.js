@@ -21,7 +21,7 @@ fetch("v2/events")
                 <div class="card">
                   <img class="card-img-top" src="${img}">
                   <div class="card-body">
-                    <a href="event.html?event_id=${id}" <h4 class="card-title">${name}</h4></a>
+                    <a href="event.html?event_id=${id}"> <h4 class="card-title">${name}</h4></a>
                     <p>${desc}</p>
                     <button class="btn btn-primary btn-block" type="button">
                       <a href="event.html?event_id=${id}" class="btn btn-primary text-right">SEE MORE</a>

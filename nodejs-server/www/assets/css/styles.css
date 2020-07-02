@@ -11,7 +11,7 @@ sidebar {
 }
 
 .col-md-10.page {
-  padding: 0px;
+  margin-right: -10px;
 }
 
 .row.page-block {

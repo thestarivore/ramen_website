@@ -5513,6 +5513,8 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   -ms-flex-negative: 0;
   flex-shrink: 0;
   width: 100%;
+  height: 15vw;
+  object-fit: cover;
   padding-bottom: 0px;
 }
 
@@ -7097,7 +7099,7 @@ a.close.disabled {
   transition: -webkit-transform 0.6s ease-in-out;
   transition: transform 0.6s ease-in-out;
   transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
-  height: 85vh;
+  height: 90vh;
 }
 
 @media (prefers-reduced-motion: reduce) {
