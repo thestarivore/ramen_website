@@ -37,17 +37,8 @@ Promise.all([
 
         // Construct card content
         const content = `
-          <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-            <div class="card">
-              <ul class="list-group list-group-flush" id="events_group_index">
-                <li class="list-group-item">
-                  <h4 class="card-title">Other Events</h4>
-                </li>
           
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-9 col-xl-9 >
+          <div class="col-sm-12 col-lg-8>
             <div class="text-center">
               <div class="intro">
                   <h1 class="text-center">${name}</h1>
@@ -67,11 +58,22 @@ Promise.all([
               </div>
             </div>
             
-            <div class="row justify-content-around">
+            <div class="row justify-content-between">
               <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary"> << Previous Event</a>
               <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right"> Next Event >></a>
               </div>
               
+          </div>
+
+          <div class="col-sm-12 col-lg-4">
+            <div class="card">
+              <ul class="list-group list-group-flush" id="events_group_index">
+                <li class="list-group-item">
+                  <h4 class="card-title">Related Events</h4>
+                </li>
+          
+              </ul>
+            </div>
           </div>
         `;
 
