@@ -23,3 +23,9 @@
   padding: 20px;
 }
 
+.brands img {
+  display: inline-block;
+  margin: 10px 20px;
+  vertical-align: middle;
+  padding: 20px;
+}

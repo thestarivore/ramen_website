@@ -42,26 +42,25 @@ Promise.all([
             <div class="text-center">
               <div class="intro">
                   <h1 class="text-center">${name}</h1>
-              </div>
-
-              <div class="col-auto d-flex justify-content-center"><img src="${img}" class="event-img" alt="..."></div>
-
-              <div class="text-justify"> 
-                <p>${description}</p>
-                <p>LOCATION:</p>
-                <p>${location}, ${city}</p>
-
-                <p>SPONSORS:</p>
-                <div class="brands" id="event_sponsors">
-                </div>
-
-              </div>
             </div>
-            
+
+            <div class="col-auto d-flex justify-content-center">
+              <img src="${img}" class="event-img" alt="...">
+            </div>
+
+            <div class="text-justify"> 
+              <p>${description}</p>
+              <p>LOCATION:</p>
+              <p>${location}, ${city}</p>
+
+              <p>SPONSORS:</p>
+              <div class="brands" id="event_sponsors">
+            </div>
+           
             <div class="row justify-content-between">
               <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary"> << Previous Event</a>
               <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right"> Next Event >></a>
-              </div>
+            </div>
               
           </div>
 
