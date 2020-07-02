@@ -47,7 +47,7 @@ Promise.all([
             <p>${location}, ${city}</p>
     
             <p>SPONSORS:</p>
-            <div class="justify-content-center event-brands" id="event_sponsors">
+            <div class="row justify-content-center event-brands" id="event_sponsors">
         </div>
     
         <div class="row justify-content-between">
