@@ -53,7 +53,7 @@ Promise.all([
               <p>${location}, ${city}</p>
 
               <p>SPONSORS:</p>
-              <div class="d-flex justify-content-around brands" id="event_sponsors">
+              <div class="justify-content-around brands" id="event_sponsors">
             </div>
            
             <div class="row justify-content-between">
