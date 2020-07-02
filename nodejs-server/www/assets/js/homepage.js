@@ -19,7 +19,7 @@ Promise.all([
     json[0].then(function(result) {   
       for (var i = 0; i < 3; i++) {
         let { id, name, img, description, contact_reference } = result[i];
-        var desc = description.substr(1, 150) + ".."
+        var desc = description.substr(0, 150) + ".."
 
         // Construct card content
         const content = `
@@ -43,7 +43,7 @@ Promise.all([
     json[1].then(function(result) { 
       for (var i = 0; i < result.length; i++) {
         let { id, name, surname, description, img, role, is_founder} = result[i];
-        var desc = description.substr(1, 150) + ".."
+        var desc = description.substr(0, 150) + ".."
 
         if(is_founder){
             // Construct card content
@@ -69,12 +69,7 @@ Promise.all([
 
         // Construct card content
         const content = `
-            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 sponsor">
-                <div class="text-left"> 
-                    <p>${company}</p>
-                </div>
-                <img src="${img}" class="sponsor-img" alt="..."> 
-            </div>
+          <img src="${img}"> 
         `;
 
         // Append newyly created card element to the container

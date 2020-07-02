@@ -52,12 +52,12 @@ Promise.all([
 
         // Construct card content
         const content = `
-          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" style="padding: 15px 30px;">
+          <div class="card-columns d-sm-inline d-lg-flex justify-content-center">
             <div class="card">
               <img class="card-img-top" src="${img}">
               <div class="card-body">
-                <h4 class="card-title">${name}</h4>
-                <p>${desc}</p>
+                <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
+                <p class="card-text">${desc}</p>
                 <button class="btn btn-primary btn-block" type="button">
                   <a href="event.html?event_id=${id}" class="btn btn-primary text-right">SEE MORE</a>
                 </button>

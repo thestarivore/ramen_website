@@ -1,4 +1,4 @@
-const container = document.getElementById('sponsors_row_list');
+const container = document.getElementById('sponsors');
   
 fetch("v2/sponsors")
     .then(function(response) {
@@ -13,12 +13,7 @@ fetch("v2/sponsors")
 
             // Construct card content
             const content = `
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 sponsor">
-                    <div class="text-left"> 
-                        <p>${company}</p>
-                    </div>
-                    <img src="${img}" class="sponsor-img" alt="..."> 
-                </div>
+                <img src="${img}"> 
             `;
 
             // Append newyly created card element to the container

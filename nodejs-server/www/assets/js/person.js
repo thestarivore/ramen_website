@@ -41,7 +41,7 @@ Promise.all([
             <p class="lead text-center">${role}</p>
           </div>
           <div class="row d-inline-flex justify-content-center">
-            <div class="col-auto" style="padding-right: 0px;padding-left: 0px;"><img src="${img}" style="padding-bottom: 20px;"></div>
+            <div class="col-auto"><img src="${img}"></div>
             <div class="col-xl-6 align-items-stretch">
               <p class="text-justify">${description}</p>
               <h4>Contacts</h4>
@@ -64,15 +64,15 @@ Promise.all([
             //Fetch the content of the Sponsors and dynamically add them to the page
             const pecontainer = document.getElementById('person_event_content');
 
-            var desc = description.substr(1, 250) + ".."
+            var desc = description.substr(0, 250) + ".."
 
             // Construct card content
             const content = `
-              <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" style="padding: 15px 30px;">
+              <div class="card-columns d-sm-inline d-lg-flex justify-content-center">
                 <div class="card">
                   <img class="card-img-top w-100 d-block" src="${img}">
                   <div class="card-body">
-                    <h4 class="card-title">${name}</h4>
+                  <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
                     <p class="card-text">${desc}</p>
                     <button class="btn btn-primary btn-block" type="button">
                       <a href="event.html?event_id=${id}" class="btn btn-primary text-right">SEE MORE</a>

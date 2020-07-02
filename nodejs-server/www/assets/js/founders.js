@@ -10,13 +10,13 @@ fetch("v2/people")
     .then(function(json) {
         for (var i = 0; i < json.length; i++) {
             let { id, name, surname, description, img, role, is_founder} = json[i];
-            var desc = description.substr(1, 250) + ".."
+            var desc = description.substr(0, 250) + ".."
 
             if(is_founder){
                 // Construct card content
                 const content = `
                 <div class="col-md-12 col-lg-4 item">
-                    <div class="box"><img class="rounded-circle" src="${img}">
+                    <div class="box"><img class="rounded-circle" src="${img}" loading="lazy">
                         <h3 class="name">${name}</h3>
                         <p class="title">${role}</p>
                         <p class="description">${desc}</p>

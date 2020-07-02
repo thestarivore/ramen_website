@@ -13,13 +13,13 @@ fetch("v2/people")
 
             // Construct card content
             const content = `
-              <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3" style="padding: 15px 30px;">
+              <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3" people-card>
                   <div class="card">
                     <a href="person.html?person_id=${id}">
                       <img class="card-img-top w-100" src="${img}">
                     </a>
                     <div class="card-body text-center">
-                        <h5 class="card-title" style="margin-bottom: 0px;"><strong>${name} ${surname}</strong></h5>
+                        <h5 class="card-subtitle">${name} ${surname}</h5>
                     </div>
                   </div>
               </div>

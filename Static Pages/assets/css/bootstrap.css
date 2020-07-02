@@ -7097,6 +7097,7 @@ a.close.disabled {
   transition: -webkit-transform 0.6s ease-in-out;
   transition: transform 0.6s ease-in-out;
   transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+  height: 85vh;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -41,28 +41,27 @@ Promise.all([
             <div class="card">
               <ul class="list-group list-group-flush" id="events_group_index">
                 <li class="list-group-item">
-                  <h4 class="card-title">List of Events</h4>
+                  <h4 class="card-title">Other Events</h4>
                 </li>
           
               </ul>
             </div>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-9 col-xl-9" style="padding: 15px 15px;">
+          <div class="col-sm-6 col-md-6 col-lg-9 col-xl-9>
             <div class="text-center">
-              <div class="intro" style="padding-bottom: 20px;">
-                  <h1 class="text-center">EVENT</h1>
+              <div class="intro">
+                  <h1 class="text-center">${name}</h1>
               </div>
 
               <img src="${img}" class="event-img" alt="...">  
-              <h2 class="event-title">${name}</h5>
 
-              <div class="text-left"> 
+              <div class="text-justify"> 
                 <p>${description}</p>
                 <p>LOCATION:</p>
                 <p>${location}, ${city}</p>
 
                 <p>SPONSORS:</p>
-                <div class="row" id="event_sponsors">
+                <div class="brands" id="event_sponsors">
                 </div>
 
               </div>
@@ -88,12 +87,7 @@ Promise.all([
 
           // Construct card content
           const content = `
-            <div class="col-sm-6 col-md-6 col-lg-5 col-xl-5 sponsor">
-              <div class="text-left"> 
-                <p>${company}</p>
-              </div>
-              <img src="${img}" class="event-img" alt="..."> 
-            </div>
+          <img src="${img}"> 
           `;
 
           // Append newyly created card element to the container

@@ -13,15 +13,15 @@ fetch("v2/events")
             let { id, name, img, description, contact_reference } = json[i];
             //listItem.innerHTML = `${id} - ${name} - ${description} - ${contact_reference.name}`;
             //myEventsList.appendChild(listItem);
-            var desc = description.substr(1, 250) + ".."
+            var desc = description.substr(0, 250) + ".."
 
             // Construct card content
             const content = `
-              <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" style="padding: 15px 30px;">
+              <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 event-card">
                 <div class="card">
                   <img class="card-img-top" src="${img}">
                   <div class="card-body">
-                    <h4 class="card-title">${name}</h4>
+                    <a href="event.html?event_id=${id}" <h4 class="card-title">${name}</h4></a>
                     <p>${desc}</p>
                     <button class="btn btn-primary btn-block" type="button">
                       <a href="event.html?event_id=${id}" class="btn btn-primary text-right">SEE MORE</a>
