@@ -19,7 +19,7 @@ fetch("v2/events")
             const content = `
               <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 event-card">
                 <div class="card">
-                  <img class="card-img-top" src="${img}">
+                  <a href="event.html?event_id=${id}"><img class="card-img-top" src="${img}"></a>
                   <div class="card-body">
                     <a href="event.html?event_id=${id}"> <h4 class="card-title">${name}</h4></a>
                     <p>${desc}</p>

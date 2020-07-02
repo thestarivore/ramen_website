@@ -15,11 +15,9 @@ fetch("v2/people")
             const content = `
               <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3" people-card>
                   <div class="card">
-                    <a href="person.html?person_id=${id}">
-                      <img class="card-img-top w-100" src="${img}">
-                    </a>
+                    <a href="person.html?person_id=${id}"><img class="card-img-top w-100" src="${img}"></a>
                     <div class="card-body text-center">
-                        <h5 class="card-subtitle">${name} ${surname}</h5>
+                        <a href="person.html?person_id=${id}"><h5 class="card-subtitle">${name} ${surname}</h5></a>
                     </div>
                   </div>
               </div>

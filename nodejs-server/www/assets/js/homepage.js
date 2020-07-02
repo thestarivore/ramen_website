@@ -23,9 +23,10 @@ Promise.all([
 
         // Construct card content
         const content = `
-          <div class="card"><img class="card-img-top w-100 d-block" src="${img}">
+          <div class="card">
+            <a href="event.html?event_id=${id}"><img class="card-img-top w-100 d-block" src="${img}"></a>
             <div class="card-body">
-              <h4 class="card-title">${name}</h4>
+            <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
               <p class="card-text">${desc}</p>
               <button class="btn btn-primary btn-block" type="button">
                 <a href="event.html?event_id=${id}" class="btn btn-primary text-right">SEE MORE</a>
@@ -48,7 +49,8 @@ Promise.all([
         if(is_founder){
             // Construct card content
             const content = `
-            <div class="col-md-6 col-lg-4 item"><img class="rounded-circle" src="${img}" href="person.html?person_id=${id}">
+            <div class="col-md-6 col-lg-4 item">
+            <a href="person.html?person_id=${id}"><img class="rounded-circle" src="${img}"></a>
               <a href="person.html?person_id=${id}"><h3 class="name">${name}</h3></a>
               <p class="title">${role}</p>
               <p class="description">${desc}</p>

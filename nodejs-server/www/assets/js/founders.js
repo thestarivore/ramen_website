@@ -15,7 +15,7 @@ fetch("v2/people")
             if(is_founder){
                 // Construct card content
                 const content = `
-                <div class="col-md-6 col-lg-4 item"><img class="rounded-circle" src="${img}" href="person.html?person_id=${id}">
+                <div class="col-md-6 col-lg-4 item"><a href="person.html?person_id=${id}"><img class="rounded-circle" src="${img}"></a>
                   <a href="person.html?person_id=${id}"><h3 class="name">${name}</h3></a>
                   <p class="title">${role}</p>
                   <p class="description">${desc}</p>
