@@ -1,0 +1,50 @@
+#ecalendar_table_body td, #ecalendar_table_body th, #ecalendar_table_head th{
+  padding: 0.2rem;
+  text-align: left;
+}
+
+/* .calendar-btn {
+  color: white !important;
+  fill: whitesmoke;
+} */
+
+#ecalendar_table_body p, #ecalendar_table_head h2{
+  color: whitesmoke;
+}
+
+td.bordered_column {
+  border-right: 2px solid #FFF;
+}
+
+.discussion:after {
+  content: "\22EE";
+  /* box model */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  /* decoration */
+  color: #FFFFFF;
+  /* center align */
+  line-height: 1;
+  text-align: center;
+  /* font size */
+  font-size: 2em;
+}
+
+.arrow {
+  border: solid whitesmoke;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 6px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
