@@ -35,6 +35,16 @@
   padding-bottom: 20px;
 }
 
+.service-img {
+  padding-bottom: 20px;
+  object-fit: cover;
+}
+
+.service-crop {
+  height: 50vh;
+  overflow: hidden;
+}
+
 .person-img {
   height: 70vh;
 }

@@ -34,7 +34,7 @@ Promise.all([
       let {name, description, img, date} = result[0];
 
       // Append newyly fetched info about the service to the containers
-      serviceImgContainer.innerHTML += `<img class="img-fluid w-50" src="${img}"></img>`;
+      serviceImgContainer.innerHTML += `<img class="service-img img-fluid" src="${img}"></img>`;
       serviceNameContainer.innerHTML += selectedServiceName;
       serviceDescriptionContainer.innerHTML += description;
       //serviceMissionContainer.innerHTML += mission;
@@ -67,11 +67,11 @@ Promise.all([
     //People Fetch promise
     json[2].then(function(result) { 
       for (var i = 0; i < result.length; i++) {
-        let {name, surname, role} = result[i];
+        let {id, name, surname, role} = result[i];
 
         // Construct card content
         const content = `
-          <li class="list-group-item">${name} ${surname} - ${role}</li>
+          <li class="list-group-item"><a href="person.html?person_id=${id}">${name} ${surname} - ${role}</a></li>
         `;
 
         // Append newyly created card element to the container

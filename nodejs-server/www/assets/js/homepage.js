@@ -90,9 +90,9 @@ Promise.all([
         const content = `
         <div class="col-12 col-md-6">
           <div class="card">
-              <a href="event.html?event_id=${id}"><img class="card-img-service w-100 d-block" src="${img}"></a>
+              <a href="service.html?service_name=${name}"><img class="card-img-service w-100 d-block" src="${img}"></a>
               <div class="card-img-overlay d-flex justify-content-center align-items-center">
-                  <a href='service.html?service_name=${name}><h4 class="card-title text-white">${name}</h4></a>
+                  <a href="service.html?service_name=${name}"><h4 class="card-title text-white">${name}</h4></a>
               </div>
           </div>
         </div>
