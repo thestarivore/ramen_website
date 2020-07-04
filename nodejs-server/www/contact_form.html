@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/Article-List.css">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/Brands.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
     <link rel="stylesheet" href="assets/css/Features-Boxed.css">
     <link rel="stylesheet" href="assets/css/Footer-Clean.css">
     <link rel="stylesheet" href="assets/css/Header-Dark.css">
@@ -22,11 +23,10 @@
     <link rel="stylesheet" href="assets/css/Team-Boxed.css">
     <link rel="stylesheet" href="assets/css/Team-Clean.css">
     <link rel="stylesheet" href="assets/css/Team-Grid.css">
-    <link rel="stylesheet" href="assets/css/Sponsors.css">
     <link rel="stylesheet" href="assets/css/Calendar.css">
 </head>
 
-<body">
+<body>
     <nav class="navbar navbar-dark navbar-expand-xl fixed-top bg-primary">
         <div class="container-fluid">
             <div class="d-flex flex-grow-1 justify-content-between"><a class="navbar-brand" href="index.html"><img class="branding" src="assets/img/logo.png"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
@@ -60,14 +60,19 @@
         </div>
         <div class="col-md-10 page">
             <div class="container-fluid page-content">
-                
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html"><span>Home</span></a></li>
-                    <li class="breadcrumb-item active"><span>Sponsors</span></li>
+                    <li class="breadcrumb-item active"><span>Contacts</span></li>
                 </ol>
-
-                <div class="row justify-content-between align-items-center event-brands" id="sponsors">
-
+                <div class="col">
+                    <form>
+                        <h1 class="display-4 text-center">ask us anything!</h1>
+                        <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name" id="name_input"></div>
+                        <div class="form-group"><input class="form-control is-invalid" type="email" name="email" placeholder="Email" id="email_input_field">
+                            <small class="form-text text-danger" id="email_input_msg"></small>
+                        </div>
+                        <div class="form-group"><textarea class="form-control" name="message" placeholder="Message" rows="14" id="message_input"></textarea></div>
+                        <div class="form-group"><button class="btn btn-primary btn-block" type="submit">send </button></div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -91,14 +96,14 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <!--Call the JS Script to create the dynamic content of the page-->
-    <script type="text/javascript" src="assets/js/sponsors.js"></script>
-
     <!--Call the JS Script to create the dynamic calendar-->
     <script type="text/javascript" src="assets/js/events_calendar.js"></script>
 
     <!--Call the JS Script to create the dynamic services dropdown menu-->
     <script type="text/javascript" src="assets/js/dropdown_menu_services.js"></script>
+
+    <!--Call the JS Script to create the dynamic services dropdown menu-->
+    <script type="text/javascript" src="assets/js/contact_form.js"></script>
 </body>
 
 </html>
