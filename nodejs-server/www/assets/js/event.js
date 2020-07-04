@@ -27,7 +27,7 @@ Promise.all([
       //Event Fetch promise
       json[0].then(function(result) {   
         //var listItem = document.createElement("li");
-        let { id, name, img, description, contact_reference, location, city} = result[0];
+        let { id, name, img, description, contact_reference, location, city, service } = result[0];
         //listItem.innerHTML = `${id} - ${name} - ${description} - ${contact_reference.name}`;
 
         //Create/Complete the Breadcrumb
@@ -40,6 +40,8 @@ Promise.all([
         <div class="col-sm-12 col-lg-8">
         <div class="intro"><h1 class="text-center">${name}</h1></div>
         <div class="col-auto d-flex justify-content-center"><img src="${img}" class="event-img" alt="..."></div>
+
+        <p class="lead">${service}</p>
     
         <div class="text-justify"> 
             <p class="lead">${description}</p>

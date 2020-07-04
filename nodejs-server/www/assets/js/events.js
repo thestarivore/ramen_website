@@ -30,20 +30,19 @@ fetch("v2/events")
 
         //Create the Events Cards
         for (var i = first; i < last; i++) {
-            let { id, name, img, description, contact_reference } = json[i];
+            let { id, name, img, description, contact_reference, service } = json[i];
             var desc = description.substr(0, 250) + ".."
 
             // Construct Event card content
             const content = `
               <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 event-card">
-                <div class="card">
+                <div class="card h-100">
                   <a href="event.html?event_id=${id}"><img class="card-img-top" src="${img}"></a>
                   <div class="card-body">
                     <a href="event.html?event_id=${id}"> <h4 class="card-title">${name}</h4></a>
+                    <p>${service}</p>
                     <p>${desc}</p>
-                    <button class="btn btn-primary btn-block" type="button">
-                      <a href="event.html?event_id=${id}" class="btn btn-primary text-right">SEE MORE</a>
-                    </button>
+                    <button class="btn btn-primary btn-block" href="event.html?event_id=${id}" type="button">SEE MORE</button>
                   </div>
                 </div>
               </div>

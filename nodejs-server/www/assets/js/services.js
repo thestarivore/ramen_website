@@ -15,7 +15,7 @@ fetch("v2/services")
             // Construct card content
             const content = `
               <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" style="padding: 15px 30px;">
-                <div class="card">
+                <div class="card h-100">
                   <img class="card-img-top" src="${img}">
                   <div class="card-body">
                     <h4 class="card-title">${name}</h4>
