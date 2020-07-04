@@ -24,12 +24,13 @@ monthArray[9] = "October";
 monthArray[10] = "November";
 monthArray[11] = "December";
 
+var eventIds = [];
 var eventNames = [];
 var eventDates = [];
   
 buildCalendar();
 
-function buildCalendar(selectedMonth){
+function buildCalendar(selectedMonth, selectedYear){
   fetch("v2/events")
     .then(function(response) {
         if (!response.ok) {
@@ -40,7 +41,8 @@ function buildCalendar(selectedMonth){
     .then(function(json) {
         for (var i = 0; i < json.length; i++) {
             //var listItem = document.createElement("li");
-            let {name, date} = json[i];
+            let {id, name, date} = json[i];
+            eventIds[i] = id;
             eventNames[i] = name;
             eventDates[i] = new Date(Date.parse(date));
         }
@@ -54,7 +56,7 @@ function buildCalendar(selectedMonth){
         } else {
           today = new Date();
           month = selectedMonth;
-          year = today.getFullYear();
+          year = selectedYear;
         }
 
         //Set the Month on the Head
@@ -85,17 +87,17 @@ function buildCalendar(selectedMonth){
           headContainer.innerHTML = "";
           bodyContainer.innerHTML = "";
           if(month > 0)
-            buildCalendar(month-1);
+            buildCalendar(month-1, year);
           else
-            buildCalendar(11);
+            buildCalendar(11, year - 1);
         });
         $('#right_month_btn').on('click', function(event) {
           headContainer.innerHTML = "";
           bodyContainer.innerHTML = "";
           if(month < 11)
-            buildCalendar(month+1);
+            buildCalendar(month+1, year);
           else
-            buildCalendar(0);
+            buildCalendar(0, year + 1);
         });
 
         //Calculate starting date (the week that contains today)
@@ -124,10 +126,12 @@ function buildCalendar(selectedMonth){
           //Find is there any event on this date
           for (var j = 0; j < eventNames.length; j++) {
             if(isEventOnDate(j, date, month, year)){
+              var event = `<a href="event.html?event_id=${eventIds[j]}">` + eventNames[j] + `</a>`
+
               if(eventName != "")
-                eventName += "<br>" + eventNames[j];
+                eventName += "<br>" + event;
               else
-                eventName = eventNames[j];
+                eventName = event;
               //break;//max one event per day
             }
           }

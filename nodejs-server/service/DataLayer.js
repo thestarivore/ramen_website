@@ -8,6 +8,18 @@ const sqlDbFactory = require("knex");
     client: "postgres",
     connection: {
         host: "127.0.0.1", //process.env.DATABASE_URL, //console: DATABASE_URL=localhost node index.js
+        port: "5432",
+        user: "postgres",
+        password:"password",
+        database: "association_db"
+    },
+    ssl: true
+});*/
+/*let sqlDb = sqlDbFactory({
+    debug: true,
+    client: "postgres",
+    connection: {
+        host: "127.0.0.1", //process.env.DATABASE_URL, //console: DATABASE_URL=localhost node index.js
         port: "6666",
         user: "postgres",
         password:"password",

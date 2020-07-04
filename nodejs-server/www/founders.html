@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/Team-Boxed.css">
     <link rel="stylesheet" href="assets/css/Team-Clean.css">
     <link rel="stylesheet" href="assets/css/Team-Grid.css">
+    <link rel="stylesheet" href="assets/css/Calendar.css">
 </head>
 
 <body>
@@ -48,23 +49,10 @@
     </nav>
     <div class="row d-md-flex justify-content-center">
         <div class="col-lg-2 align-self-stretch sidebar">
-            <div class="table-responsive">
+            <div class="table-responsive hide-overflow">
+                <div class="row" id="ecalendar_table_head"></div>
                 <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Column 1</th>
-                            <th>Column 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Cell 1</td>
-                            <td>Cell 2</td>
-                        </tr>
-                        <tr>
-                            <td>Cell 3</td>
-                            <td>Cell 4</td>
-                        </tr>
+                    <tbody id="ecalendar_table_body">
                     </tbody>
                 </table>
             </div>
@@ -106,6 +94,9 @@
 
     <!--Call the JS Script to create the dynamic content of the page-->
     <script type="text/javascript" src="assets/js/founders.js"></script>
+
+    <!--Call the JS Script to create the dynamic calendar-->
+    <script type="text/javascript" src="assets/js/events_calendar.js"></script>
 </body>
 
 </html>

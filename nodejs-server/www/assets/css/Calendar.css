@@ -8,7 +8,11 @@
   fill: whitesmoke;
 } */
 
-#ecalendar_table_body p, #ecalendar_table_head h2{
+.hide-overflow {
+  overflow: hidden; /* Hide scrollbars */
+}
+
+#ecalendar_table_body p, #ecalendar_table_body a, #ecalendar_table_head h2{
   color: whitesmoke;
 }
 
