@@ -25,16 +25,14 @@ Promise.all([
 
         // Construct card content
         const content = `
-          <div class="card">
+        <div class="card">
             <a href="event.html?event_id=${id}"><img class="card-img-top w-100 d-block" src="${img}"></a>
             <div class="card-body">
-            <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
-              <p class="card-text">${desc}</p>
-              <button class="btn btn-primary btn-block" type="button">
-                <a href="event.html?event_id=${id}" class="btn btn-primary text-right">SEE MORE</a>
-              </button>
+                <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
+                <p class="card-text">${desc}</p>
+                <button class="btn btn-primary btn-block" href="event.html?event_id=${id}" type="button">SEE MORE</button>
             </div>
-          </div>
+        </div>
         `;
 
         // Append newyly created card element to the container
@@ -54,8 +52,8 @@ Promise.all([
             <div class="col-md-6 col-lg-4 item">
             <a href="person.html?person_id=${id}"><img class="rounded-circle" src="${img}"></a>
               <a href="person.html?person_id=${id}"><h3 class="name">${name}</h3></a>
-              <p class="title">${role}</p>
-              <p class="description">${desc}</p>
+              <p class="title lead">${role}</p>
+              <p class="lead">${desc}</p>
               <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
             </div>
             `;
@@ -89,12 +87,14 @@ Promise.all([
         // Construct card content
         const content = `
         <div class="col-12 col-md-6">
-          <div class="card">
-              <a href="service.html?service_name=${name}"><img class="card-img-service w-100 d-block" src="${img}"></a>
-              <div class="card-img-overlay d-flex justify-content-center align-items-center">
-                  <a href="service.html?service_name=${name}"><h4 class="card-title text-white">${name}</h4></a>
-              </div>
-          </div>
+          <a href="service.html?service_name=${name}">
+            <div class="card">
+                <img class="card-img-service w-100 d-block" src="${img}">
+                <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                    <h4 class="card-title text-white">${name}</h4>
+                </div>
+            </div>
+          </a>
         </div>
         `;
 

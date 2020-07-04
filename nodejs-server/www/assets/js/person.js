@@ -43,7 +43,7 @@ Promise.all([
           <div class="row d-inline-flex justify-content-center">
             <div class="col-auto"><img class="person-img" src="${img}"></div>
             <div class="col-xl-6 align-items-stretch">
-              <p class="text-justify">${description}</p>
+              <p class="text-justify lead">${description}</p>
               <h4>Contacts</h4>
               <p class="lead">E-mail: ${email}<br>Phone: ${phone}</p>
             </div>
@@ -71,9 +71,9 @@ Promise.all([
             <div class="card">
               <a href="event.html?event_id=${id}"><img class="card-img-top w-100 d-block" src="${img}"></a>
               <div class="card-body">
-                <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
-                <p class="card-text">${desc}</p>
-                <button class="btn btn-primary btn-block" href="event.html?event_id=${id}" type="button">SEE MORE</button>
+                  <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
+                  <p class="card-text">${desc}</p>
+                  <button class="btn btn-primary btn-block" href="event.html?event_id=${id}" type="button">SEE MORE</button>
               </div>
             </div>
             `;
