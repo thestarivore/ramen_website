@@ -1,4 +1,14 @@
-const container = document.getElementById('events_row_list');
+//Getting the URL passed parameter
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const selectedPage = urlParams.get('page');
+
+//Fetch the content of the Events and dynamically create the page
+const eventsRowListContainer = document.getElementById('events_row_list');
+const eventsNavContainer = document.getElementById('navigation_pages');
+
+//Constants
+const EVENTS_PER_PAGE = 3;
   
 fetch("v2/events")
     .then(function(response) {
@@ -8,14 +18,22 @@ fetch("v2/events")
         return response.json();
     })
     .then(function(json) {
-        for (var i = 0; i < json.length; i++) {
-            //var listItem = document.createElement("li");
+        var numEvents = json.length;
+        var numPages = Math.ceil(numEvents/EVENTS_PER_PAGE);  
+        var currentPage = (selectedPage != null) ? selectedPage : 1;
+
+        //Set which events to print
+        var first = (currentPage-1)*EVENTS_PER_PAGE;
+        var last = first + EVENTS_PER_PAGE;
+        if(currentPage == numPages)
+            last = numEvents;
+
+        //Create the Events Cards
+        for (var i = first; i < last; i++) {
             let { id, name, img, description, contact_reference } = json[i];
-            //listItem.innerHTML = `${id} - ${name} - ${description} - ${contact_reference.name}`;
-            //myEventsList.appendChild(listItem);
             var desc = description.substr(0, 250) + ".."
 
-            // Construct card content
+            // Construct Event card content
             const content = `
               <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 event-card">
                 <div class="card">
@@ -32,6 +50,36 @@ fetch("v2/events")
             `;
 
             // Append newyly created card element to the container
-            container.innerHTML += content;
+            eventsRowListContainer.innerHTML += content;
         }
+
+        //Create the Navigation Pattern
+        //Add the Previuous button
+        var prev = (currentPage == 1) ? numPages : parseInt(currentPage) - 1;
+        eventsNavContainer.innerHTML += `
+          <li class="page-item"><a class="page-link" href="events.html?page=${prev}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+        `;
+
+        //Add the pages nummbers
+        for (var i = 0; i < numPages; i++) {
+          var content = "";
+          if(currentPage == i+1){
+            content = `
+              <li class="page-item"><a class="page-link font-weight-bold" href="events.html?page=${i+1}">${i+1}</a></li>
+            `;
+          } else {
+            content = `
+              <li class="page-item"><a class="page-link" href="events.html?page=${i+1}">${i+1}</a></li>
+            `;
+          }
+
+          // Append newyly created card element to the container
+          eventsNavContainer.innerHTML += content;
+        }
+
+        //Add the Next button
+        var next = (currentPage == numPages) ? 1 : parseInt(currentPage) + 1;
+        eventsNavContainer.innerHTML += `
+          <li class="page-item"><a class="page-link" href="events.html?page=${next}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+        `;
     });
