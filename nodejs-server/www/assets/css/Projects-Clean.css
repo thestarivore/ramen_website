@@ -24,12 +24,12 @@
 
 .projects-clean .intro {
   font-size: 16px;
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
 .projects-clean .intro p {
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 .projects-clean .projects {

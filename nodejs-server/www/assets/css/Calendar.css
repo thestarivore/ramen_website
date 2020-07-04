@@ -1,23 +1,14 @@
 #ecalendar_table_body td, #ecalendar_table_body th, #ecalendar_table_head th{
   padding: 0.2rem;
-  text-align: left;
+  text-align: center;
 }
-
-/* .calendar-btn {
-  color: white !important;
-  fill: whitesmoke;
-} */
 
 .hide-overflow {
   overflow: hidden; /* Hide scrollbars */
 }
 
-#ecalendar_table_body p, #ecalendar_table_body a, #ecalendar_table_head h2{
-  color: whitesmoke;
-}
-
 td.bordered_column {
-  border-right: 2px solid #FFF;
+  border-right: 1px solid white;
 }
 
 .discussion:after {
@@ -27,7 +18,7 @@ td.bordered_column {
   width: 1em;
   height: 1em;
   /* decoration */
-  color: #FFFFFF;
+  color: white;
   /* center align */
   line-height: 1;
   text-align: center;
@@ -36,7 +27,7 @@ td.bordered_column {
 }
 
 .arrow {
-  border: solid whitesmoke;
+  border: solid white;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 6px;
@@ -52,3 +43,7 @@ td.bordered_column {
   -webkit-transform: rotate(135deg);
 }
 
+.calendar-heading {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

@@ -61,21 +61,21 @@ function buildCalendar(selectedMonth, selectedYear){
 
         //Set the Month on the Head
         const content = `
-          <div>
-            <button id="left_month_btn" type="button" class="btn btn-default">
-              <span class="arrow left"></span>
-            </button>
-          </div>
+        <div>
+          <button id="left_month_btn" type="button" class="btn btn-default">
+            <span class="arrow left"></span>
+          </button>
+        </div>
 
-          <div>
-            <h2>${monthArray[month]}</h2>
-          </div>
+        <div>
+          <h2 class="text-white">${monthArray[month]}</h2>
+        </div>
 
-          <div>
-            <button id="right_month_btn" type="button" class="btn btn-default">
-              <span class="arrow right"></span>
-            </button>
-          </div>
+        <div>
+          <button id="right_month_btn" type="button" class="btn btn-default">
+            <span class="arrow right"></span>
+          </button>
+        </div>
         `;
 
         // Append newyly created card element to the container
@@ -126,7 +126,7 @@ function buildCalendar(selectedMonth, selectedYear){
           //Find is there any event on this date
           for (var j = 0; j < eventNames.length; j++) {
             if(isEventOnDate(j, date, month, year)){
-              var event = `<a href="event.html?event_id=${eventIds[j]}">` + eventNames[j] + `</a>`
+              var event = `<a href="event.html?event_id=${eventIds[j]}"><h6 class="text-white text-left">` + eventNames[j] + `</h6></a>`
 
               if(eventName != "")
                 eventName += "<br>" + event;
@@ -136,18 +136,18 @@ function buildCalendar(selectedMonth, selectedYear){
             }
           }
 
-          //Set the date as Bold if is the current day
+          //Set the date Yellow if is the current day
           if(date == today.getDate() && selectedMonth == null)
-            dateHTML = `<p class="font-weight-bold">${date}</p>`;
+            dateHTML = `<h5 class="text-warning">${date}</h5>`;
           else
-            dateHTML = `<p>${date}</p>`;
+            dateHTML = `<h5 class="text-white">${date}</h5>`;
 
           // Construct card content
           const content = `
             <tr class="d-row">
-              <td class="col-md-1 bordered_column"><p>${weekday[day]}</p></td>
+              <td class="col-md-1 bordered_column text-center"><h5 class="text-white">${weekday[day]}</h5></td>
               <td col-md-1>${dateHTML}</td>
-              <td col-md-10><p>${eventName}</p></td>
+              <td col-md-10>${eventName}</td>
             </tr>
           `;
 
@@ -160,8 +160,8 @@ function buildCalendar(selectedMonth, selectedYear){
           } else {
             // Construct card content
             const content = `
-              <tr class="d-row">
-                <td class="col-md-1 bordered_column discussion"></td>
+              <tr class="d-row align-items-center">
+                <td class="col-md-1 bordered_column"></td>
                 <td class="col-md-1 discussion"></td>
                 <td class="col-md-10"></td>
               </tr>
