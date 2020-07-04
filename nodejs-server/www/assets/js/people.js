@@ -1,5 +1,16 @@
-const container = document.getElementById('people_row_list');
-  
+//Getting the URL passed parameter
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const selectedPage = urlParams.get('page');
+
+//Fetch the content of the People and dynamically create the page
+const peopleRowListContainer = document.getElementById('people_row_list');
+const peopleNavContainer = document.getElementById('navigation_pages');
+
+//Constants
+const PEOPLE_PER_PAGE = 4;
+
+
 fetch("v2/people")
     .then(function(response) {
         if (!response.ok) {
@@ -8,7 +19,17 @@ fetch("v2/people")
         return response.json();
     })
     .then(function(json) {
-        for (var i = 0; i < json.length; i++) {
+        var numPeople = json.length;
+        var numPages = Math.ceil(numPeople/PEOPLE_PER_PAGE);  
+        var currentPage = (selectedPage != null) ? selectedPage : 1;
+
+        //Set which People to print
+        var first = (currentPage-1)*PEOPLE_PER_PAGE;
+        var last = first + PEOPLE_PER_PAGE;
+        if(currentPage == numPages)
+            last = numPeople;
+
+        for (var i = first; i < last; i++) {
             let { id, name, surname, img} = json[i];
 
             // Construct card content
@@ -24,6 +45,36 @@ fetch("v2/people")
             `;
 
             // Append newyly created card element to the container
-            container.innerHTML += content;
+            peopleRowListContainer.innerHTML += content;
         }
+
+        //Create the Navigation Pattern
+        //Add the Previuous button
+        var prev = (currentPage == 1) ? numPages : parseInt(currentPage) - 1;
+        peopleNavContainer.innerHTML += `
+          <li class="page-item"><a class="page-link" href="people.html?page=${prev}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+        `;
+
+        //Add the pages nummbers
+        for (var i = 0; i < numPages; i++) {
+          var content = "";
+          if(currentPage == i+1){
+            content = `
+              <li class="page-item"><a class="page-link font-weight-bold" href="people.html?page=${i+1}">${i+1}</a></li>
+            `;
+          } else {
+            content = `
+              <li class="page-item"><a class="page-link" href="people.html?page=${i+1}">${i+1}</a></li>
+            `;
+          }
+
+          // Append newyly created card element to the container
+          peopleNavContainer.innerHTML += content;
+        }
+
+        //Add the Next button
+        var next = (currentPage == numPages) ? 1 : parseInt(currentPage) + 1;
+        peopleNavContainer.innerHTML += `
+          <li class="page-item"><a class="page-link" href="people.html?page=${next}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+        `;
     });
