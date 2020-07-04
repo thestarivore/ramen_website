@@ -43,13 +43,13 @@ Promise.all([
 
     //Events Fetch promise
     json[1].then(function(result) { 
-      for (var i = 0; i < result.length; i++) {
+      for (var i = 0; i < 3; i++) {
         let { id, name, img, description, contact_reference } = result[i];
         var desc = description.substr(1, 250) + ".."
 
         // Construct card content
         const content = `
-        <div class="card">
+        <div class="card h-100">
             <a href="event.html?event_id=${id}"><img class="card-img-top w-100 d-block" src="${img}"></a>
             <div class="card-body">
                 <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
