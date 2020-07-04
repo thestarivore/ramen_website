@@ -88,9 +88,14 @@ Promise.all([
 
         // Construct card content
         const content = `
-          <div class="col-sm-6 item"><img class="img-fluid" src="${img}">
-            <h3 class="name"><a href='service.html?service_name=${name}'><span>${name}</span></a></h3>
+        <div class="col-12 col-md-6">
+          <div class="card">
+              <a href="event.html?event_id=${id}"><img class="card-img-service w-100 d-block" src="${img}"></a>
+              <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                  <a href='service.html?service_name=${name}><h4 class="card-title text-white">${name}</h4></a>
+              </div>
           </div>
+        </div>
         `;
 
         // Append newyly created card element to the container
