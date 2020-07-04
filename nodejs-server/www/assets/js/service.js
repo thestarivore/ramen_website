@@ -7,9 +7,9 @@ const selectedServiceName = urlParams.get('service_name')
 const serviceImgContainer         = document.getElementById('service_img');
 const serviceNameContainer        = document.getElementById('service_name');
 const serviceDescriptionContainer = document.getElementById('service_description');
-const serviceMissionContainer     = document.getElementById('service_mission');
+//const serviceMissionContainer     = document.getElementById('service_mission');
 const breadcrumbContainer         = document.getElementById('breadcrumb_service_type');
-
+const peopleInvolvedContainer     = document.getElementById('people_involved');
 
 //Fetch the content of the Service's Related Events and dynamically create the page
 const eventsListContainer = document.getElementById('related_events_cards');
@@ -17,10 +17,11 @@ const eventsListContainer = document.getElementById('related_events_cards');
 
 Promise.all([
   fetch("v2/services/?search=" + selectedServiceName),
-  fetch("v2/services/events/?serviceName=" + selectedServiceName)            
+  fetch("v2/services/events/?serviceName=" + selectedServiceName),  
+  fetch("v2/services/people?serviceName=" + selectedServiceName)          
 ]).then(function(responses) {
       if (!responses[0].ok || !responses[1].ok) {
-          throw new Error("HTTP error, status1 = " + responses[0].status + ", status2 = " + responses[1].status);
+          throw new Error("HTTP error, status1 = " + responses[0].status + ", status2 = " + responses[1].status + ", status3 = " + responses[2].status);
       }
       return responses.map(function (response) {
         return response.json();
@@ -30,18 +31,14 @@ Promise.all([
     //Service Fetch promise
     json[0].then(function(result) {   
       //var listItem = document.createElement("li");
-      let {name, description, mission, img, type, date} = result[0];
+      let {name, description, img, date} = result[0];
 
       // Append newyly fetched info about the service to the containers
-      serviceImgContainer.innerHTML += img;
+      serviceImgContainer.innerHTML += `<img class="img-fluid w-50" src="${img}"></img>`;
       serviceNameContainer.innerHTML += selectedServiceName;
       serviceDescriptionContainer.innerHTML += description;
-      serviceMissionContainer.innerHTML += mission;
-
-      if(type == "t")
-        breadcrumbContainer.innerHTML += "<a href='talks.html'><span>Talks</span></a>";
-      else if(type == "w")
-        breadcrumbContainer.innerHTML += "<a href='workshops.html'><span>Workshops</span></a>";
+      //serviceMissionContainer.innerHTML += mission;
+      breadcrumbContainer.innerHTML += "<span>" + name + "</span>";
     });
 
     //Events Fetch promise
@@ -64,6 +61,21 @@ Promise.all([
 
         // Append newyly created card element to the container
         eventsListContainer.innerHTML += content;
+      }
+    });
+
+    //People Fetch promise
+    json[2].then(function(result) { 
+      for (var i = 0; i < result.length; i++) {
+        let {name, surname, role} = result[i];
+
+        // Construct card content
+        const content = `
+          <li class="list-group-item">${name} ${surname} - ${role}</li>
+        `;
+
+        // Append newyly created card element to the container
+        peopleInvolvedContainer.innerHTML += content;
       }
     });
   });

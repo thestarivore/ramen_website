@@ -1,14 +1,16 @@
 const upcominfEventsContainer = document.getElementById('upcoming_events');
 const foundersContainer = document.getElementById('founders_list');
 const sponsorsContainer = document.getElementById('sponsors_list');
+const servicesContainer = document.getElementById('services_list'); 
 
 Promise.all([
   fetch("v2/events"),
   fetch("v2/people"),     
-  fetch("v2/sponsors"),       
+  fetch("v2/sponsors"),      
+  fetch("v2/services"),  
 ]).then(function(responses) {
-      if (!responses[0].ok || !responses[1].ok || !responses[2].ok) {
-          throw new Error("HTTP error, status1 = " + responses[0].status + ", status2 = " + responses[1].status + ", status3 = " + responses[2].status);
+      if (!responses[0].ok || !responses[1].ok || !responses[2].ok || !responses[3].ok) {
+          throw new Error("HTTP error, status1 = " + responses[0].status + ", status2 = " + responses[1].status + ", status3 = " + responses[2].status+ ", status4 = " + responses[3].status);
       }
       return responses.map(function (response) {
         return response.json();
@@ -76,6 +78,23 @@ Promise.all([
 
         // Append newyly created card element to the container
         sponsorsContainer.innerHTML += content;
+      }
+    });
+
+    //Services Fetch promise
+    json[3].then(function(result) { 
+      for (var i = 0; i < result.length; i++) {
+        let {name, description, img, date} = result[i];
+
+        // Construct card content
+        const content = `
+          <div class="col-sm-6 item"><img class="img-fluid" src="${img}">
+            <h3 class="name"><a href='service.html?service_name=${name}'><span>${name}</span></a></h3>
+          </div>
+        `;
+
+        // Append newyly created card element to the container
+        servicesContainer.innerHTML += content;
       }
     });
   });

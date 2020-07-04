@@ -22,10 +22,11 @@
     <link rel="stylesheet" href="assets/css/Team-Boxed.css">
     <link rel="stylesheet" href="assets/css/Team-Clean.css">
     <link rel="stylesheet" href="assets/css/Team-Grid.css">
+    <link rel="stylesheet" href="assets/css/Events.css">
     <link rel="stylesheet" href="assets/css/Calendar.css">
 </head>
 
-<body>
+<body style="background-color: #ffffff;">
     <nav class="navbar navbar-dark navbar-expand-xl fixed-top bg-primary" style="max-height: 90px;">
         <div class="container-fluid">
             <div class="d-flex flex-grow-1 justify-content-between"><a class="navbar-brand" href="index.html">THE RAMEN ASSOCIATION</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
@@ -36,7 +37,7 @@
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="association.html">association</a></li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="services.html">SERVICES&nbsp;</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="talks.html">TALKS</a><a class="dropdown-item" role="presentation" href="workshops.html">WORKSHOPS</a></div>
+                        <div class="dropdown-menu" role="menu" id="dropdown_services_list"></div>
                     </li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="events.html">EVENTS</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="people.html">PEOPLE</a></li>
@@ -58,28 +59,16 @@
             </div>
         </div>
         <div class="col-md-10">
-            <div class="container-fluid justify-content-center" style="padding-top: 20px;margin-top: 0px;padding-right: 40px;padding-left: 40px;">
+            <div class="container-fluid" style="padding-top: 20px;margin-top: 0px;padding-right: 40px;padding-left: 40px;">
+
+                <!--Crumbread-->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html"><span>Home</span></a></li>
-                    <li class="breadcrumb-item active"><span>Services</span></li>
+                    <li class="breadcrumb-item"><span>Services</span></li>
+                    <li class="breadcrumb-item active"><span>Talks</span></li>
                 </ol>
-                <div class="row">
-                    <div class="col">
-                        <h1 class="display-4 text-center"><a href="#">talks</a>&nbsp;/&nbsp;<a href="#">workshops</a>&nbsp;</h1>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-8">
-                        <p>Paragraph</p>
-                    </div>
-                </div>
-                <div class="row" style="padding: 20px 0px;">
-                    <div class="col-6 justify-content-center"><img class="img-fluid" src="assets/img/RAMEN.png" style="padding-bottom: 20px;">
-                        <h5 class="text-right"><a href="#">talks &gt;&gt;&gt;</a></h5>
-                    </div>
-                    <div class="col-6 justify-content-center"><img class="img-fluid" src="assets/img/RAMEN.png" style="padding-bottom: 20px;">
-                        <h5 class="text-right"><a href="#"><strong>&nbsp;workshops &gt;&gt;&gt;</strong></a><br></h5>
-                    </div>
+                <div class="row" id="services_row_list">
+
                 </div>
             </div>
         </div>
@@ -103,8 +92,14 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
+    <!--Call the JS Script to create the dynamic content of the page-->
+    <script type="text/javascript" src="assets/js/services.js"></script>
+
     <!--Call the JS Script to create the dynamic calendar-->
     <script type="text/javascript" src="assets/js/events_calendar.js"></script>
+
+    <!--Call the JS Script to create the dynamic services dropdown menu-->
+    <script type="text/javascript" src="assets/js/dropdown_menu_services.js"></script>
 </body>
 
 </html>
