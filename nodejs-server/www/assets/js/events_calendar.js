@@ -174,7 +174,7 @@ function buildCalendar(selectedMonth, selectedYear){
             eventDate = getFirstDateWithEvent(date, month, year);
 
             //But if the current day(today) still needs to be drawed and is positioned before the eventDate, then draw today first
-            if(i < today.getDate() && today.getDate() < eventDate && today.getMonth == month)
+            if(i < today.getDate() && today.getDate() < eventDate && today.getMonth() == month)
               eventDate = today.getDate();
             
             // Get the new day of the week
