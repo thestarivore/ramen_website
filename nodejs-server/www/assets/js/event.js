@@ -42,11 +42,11 @@ Promise.all([
         <div class="col-auto d-flex justify-content-center"><img src="${img}" class="event-img" alt="..."></div>
     
         <div class="text-justify"> 
-            <p>${description}</p>
-            <p>LOCATION:</p>
-            <p>${location}, ${city}</p>
+            <p class="lead">${description}</p>
+            <p class="lead">LOCATION:</p>
+            <p class="lead">${location}, ${city}</p>
     
-            <p>SPONSORS:</p>
+            <p class="lead">SPONSORS:</p>
             <div class="row justify-content-between align-items-center event-brands" id="event_sponsors">
         </div>
     
