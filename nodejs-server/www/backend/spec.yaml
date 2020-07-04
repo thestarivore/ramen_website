@@ -9,8 +9,8 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "localhost:8080"
-#host: "ramen-website.herokuapp.com"
+#host: "localhost:8080"
+host: "ramen-website.herokuapp.com"
 basePath: "/v2"
 tags:
 - name: "event"
@@ -22,8 +22,8 @@ tags:
 - name: "sponsor"
   description: "Sponsor of Events inside the Association"
 schemes:
-- "http"
-#- "https"
+#- "http"
+- "https"
 paths:
   /events:
     get:

@@ -11,18 +11,18 @@ weekday[5] = "Fri";
 weekday[6] = "Sat";
 
 var monthArray = new Array(12);
-monthArray[0] = "January";
-monthArray[1] = "February";
-monthArray[2] = "March";
-monthArray[3] = "April";
+monthArray[0] = "Jan";
+monthArray[1] = "Feb";
+monthArray[2] = "Mar";
+monthArray[3] = "Apr";
 monthArray[4] = "May";
-monthArray[5] = "June";
-monthArray[6] = "July";
-monthArray[7] = "August";
-monthArray[8] = "September";
-monthArray[9] = "October";
-monthArray[10] = "November";
-monthArray[11] = "December";
+monthArray[5] = "Jun";
+monthArray[6] = "Jul";
+monthArray[7] = "Aug";
+monthArray[8] = "Sep";
+monthArray[9] = "Oct";
+monthArray[10] = "Nov";
+monthArray[11] = "Dec";
 
 var eventIds = [];
 var eventNames = [];
@@ -68,7 +68,7 @@ function buildCalendar(selectedMonth, selectedYear){
         </div>
 
         <div>
-          <h2 class="text-white">${monthArray[month]}</h2>
+          <h2 class="text-white">${monthArray[month] + " " + year.toString().substring(2,4)}</h2>
         </div>
 
         <div>
@@ -137,7 +137,7 @@ function buildCalendar(selectedMonth, selectedYear){
           }
 
           //Set the date Yellow if is the current day
-          if(date == today.getDate() && selectedMonth == null)
+          if(date == today.getDate() && today.getMonth() == month)
             dateHTML = `<h5 class="text-warning">${date}</h5>`;
           else
             dateHTML = `<h5 class="text-white">${date}</h5>`;
@@ -172,6 +172,10 @@ function buildCalendar(selectedMonth, selectedYear){
 
             // Find the first date that has an Event
             eventDate = getFirstDateWithEvent(date, month, year);
+
+            //But if the current day(today) still needs to be drawed and is positioned before the eventDate, then draw today first
+            if(i < today.getDate() && today.getDate() < eventDate && today.getMonth == month)
+              eventDate = today.getDate();
             
             // Get the new day of the week
             var tmpDate = new Date();

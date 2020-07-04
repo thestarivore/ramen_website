@@ -40,7 +40,7 @@ fetch("v2/events")
                   <a href="event.html?event_id=${id}"><img class="card-img-top" src="${img}"></a>
                   <div class="card-body">
                     <a href="event.html?event_id=${id}"> <h4 class="card-title">${name}</h4></a>
-                    <p>${service}</p>
+                    <p>${service.name}</p>
                     <p>${desc}</p>
                     <button class="btn btn-primary btn-block" href="event.html?event_id=${id}" type="button">SEE MORE</button>
                   </div>
