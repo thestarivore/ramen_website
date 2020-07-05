@@ -38,6 +38,8 @@ Promise.all([
         const content = `
           <div class="row d-flex justify-content-center intro">
             <h1 class="display-4 text-center">${name} ${surname}</h1>
+          </div>
+         <div class="row d-flex justify-content-center intro">
             <p class="lead text-center">${role}</p>
           </div>
           <div class="row d-flex justify-content-center">
