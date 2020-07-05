@@ -35,7 +35,7 @@ Promise.all([
 
       // Append newyly fetched info about the service to the containers
       serviceImgContainer.innerHTML += `<img class="service-img img-fluid" src="${img}"></img>`;
-      serviceNameContainer.innerHTML += selectedServiceName;
+      serviceNameContainer.innerHTML = selectedServiceName;
       serviceDescriptionContainer.innerHTML += description;
       //serviceMissionContainer.innerHTML += mission;
       breadcrumbContainer.innerHTML += "<span>" + name + "</span>";
