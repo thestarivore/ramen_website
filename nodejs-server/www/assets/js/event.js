@@ -128,7 +128,7 @@ Promise.all([
           if(i == currentIndex){
             content = `
                 <li class="list-group-item bg-primary">
-                  <a href="event.html?event_id=${id}" class="text-left text-white">${name}</a><br>
+                  <a href="event.html?event_id=${id}" class="text-white text-left">${name}</a><br>
                 </li>
             `;
           } else {

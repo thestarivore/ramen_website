@@ -31,7 +31,7 @@
   padding: 15px 99rem;
   position: relative; /* child absolute */
   margin: 0 -99rem;
-  background: linear-gradient(162deg, rgb(187, 187, 187) 0%, rgba(255,255,255,1) 60%);
+  background: linear-gradient(162deg, rgba(255,255,255,1) 60%, rgb(187, 187, 187) 100%);
 }
 
 .col-sm-6.col-md-6.col-lg-4.col-xl-4.event-card {
@@ -74,3 +74,10 @@
 .related-events {
   padding-top: 20px;
 }
+
+@media all and (min-width: 1200px) {
+	.navbar .nav-item .dropdown-menu{  display:block; opacity: 0;  visibility: hidden; transition:.3s; margin-top:0;  }
+	.navbar .dropdown-menu.fade-down{ top:80%; transform: rotateX(-75deg); transform-origin: 0% 0%; }
+	.navbar .dropdown-menu.fade-up{ top:180%;  }
+	.navbar .nav-item:hover .dropdown-menu{ transition: .3s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); }
+}	
