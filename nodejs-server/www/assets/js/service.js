@@ -45,7 +45,7 @@ Promise.all([
     json[1].then(function(result) { 
       for (var i = 0; i < 3; i++) {
         let { id, name, img, description, service, contact_reference } = result[i];
-        var desc = description.substr(0, 250) + ".."
+        var desc = description.substr(0, 150) + ".."
 
         // Construct card content
         const content = `

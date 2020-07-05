@@ -31,7 +31,7 @@ fetch("v2/events")
         //Create the Events Cards
         for (var i = first; i < last; i++) {
             let { id, name, img, description, contact_reference, service } = json[i];
-            var desc = description.substr(0, 250) + ".."
+            var desc = description.substr(0, 80) + ".."
 
             // Construct Event card content
             const content = `

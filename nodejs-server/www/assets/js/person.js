@@ -66,7 +66,7 @@ Promise.all([
             //Fetch the content of the Sponsors and dynamically add them to the page
             const pecontainer = document.getElementById('person_event_content');
 
-            var desc = description.substr(0, 250) + ".."
+            var desc = description.substr(0, 150) + ".."
 
             // Construct card content
             const content = `

@@ -10,7 +10,7 @@ fetch("v2/people")
     .then(function(json) {
         for (var i = 0; i < json.length; i++) {
             let { id, name, surname, description, img, role, is_founder} = json[i];
-            var desc = description.substr(0, 250) + ".."
+            var desc = description.substr(0, 150) + ".."
 
             if(is_founder){
                 // Construct card content

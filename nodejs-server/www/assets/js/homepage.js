@@ -21,12 +21,12 @@ Promise.all([
     json[0].then(function(result) {   
       for (var i = 0; i < 3; i++) {
         let { id, name, img, description, service, contact_reference } = result[i];
-        var desc = description.substr(0, 150) + ".."
+        var desc = description.substr(0, 80) + ".."
 
         // Construct card content
         const content = `
         <div class="col-md-12 col-lg-4 event-card">
-        <div class="card h-100">
+        <div class="card h-100 w-100">
           <a href="event.html?event_id=${id}"><img class="card-img-top" src="${img}" alt="${name} image"></a>
           <div class="card-body d-flex flex-column justify-content-start">
             <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
@@ -47,7 +47,7 @@ Promise.all([
     json[1].then(function(result) { 
       for (var i = 0; i < result.length; i++) {
         let { id, name, surname, description, img, role, is_founder} = result[i];
-        var desc = description.substr(0, 150) + ".."
+        var desc = description.substr(0, 80) + ".."
 
         if(is_founder){
             // Construct card content
