@@ -35,20 +35,31 @@ Promise.all([
         const bcontent = `<span>${name}</span>`;
         bcontainer.innerHTML += bcontent;
 
+        //Contact Ref content
+        const contactRefcontent = `
+        <a href="person.html?person_id=${contact_reference.id}">
+          ${contact_reference.name} ${contact_reference.surname} - ${contact_reference.role}
+        </a>`;
+
+        //Parse Date
+        var pDate = new Date(date);
+
         // Construct card content
         const content = `
         <div class="col-sm-12 col-lg-8">
         <div class="intro"><h1 class="text-center">${name}</h1></div>
         <div class="col-auto d-flex justify-content-center"><img src="${img}" class="event-img" alt="..."></div>
 
-        <h4>${service.name} /// ${date}</h4>
+        <h4>${service.name} - ${pDate.toLocaleDateString()}</h4>
     
         <div class="text-justify"> 
             <p class="lead">${description}</p>
             <h4>WHERE?:</h4>
             <p class="lead">${location}, ${city}</p>
             <h4>WHEN?:</h4>
-            <p class="lead">${date}</p>
+            <p class="lead">${pDate.toLocaleString()}</p>
+            <h4>Contact Reference:</h4>
+            <p class="lead">${contactRefcontent}</p>
     
             <h4>SPONSORS:</h4>
             <div class="row justify-content-around event-brands" id="event_sponsors">
@@ -60,17 +71,17 @@ Promise.all([
         </div>
             
         </div>
-    </div>
-    <div class="col-sm-12 col-lg-4 related-events">
-    <div class="card">
-        <ul class="list-group list-group-flush" id="events_group_index">
-        <li class="list-group-item">
-            <h4 class="card-title">Related Events</h4>
-        </li>
-    
-        </ul>
-    </div>
-    </div>
+        </div>
+        <div class="col-sm-12 col-lg-4 related-events">
+        <div class="card">
+            <ul class="list-group list-group-flush" id="events_group_index">
+            <li class="list-group-item">
+                <h4 class="card-title">Related Events</h4>
+            </li>
+        
+            </ul>
+        </div>
+        </div>
         `;
 
         // Append newyly created card element to the container
