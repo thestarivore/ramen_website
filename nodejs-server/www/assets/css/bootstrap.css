@@ -5639,6 +5639,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   list-style: none;
   background-color: transparent;
   margin-bottom: 0px;
+  margin-top: 20px;
   justify-content: center;
 }
 
@@ -5655,7 +5656,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 .breadcrumb-item + .breadcrumb-item::before {
   display: inline-block;
   padding-right: 0.5rem;
-  color: #919aa1;
+  color: #000000;
   content: "/";
 }
 
@@ -5667,8 +5668,14 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   text-decoration: none;
 }
 
+.breadcrumb-item {
+  color: black;
+  font-weight: 500;
+}
+
 .breadcrumb-item.active {
   color: #919aa1;
+  font-weight: 300;
 }
 
 .pagination {
@@ -5677,6 +5684,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   display: flex;
   padding-left: 0;
   list-style: none;
+  margin: 15px 0px;
 }
 
 .page-link {

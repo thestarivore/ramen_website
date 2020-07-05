@@ -19,7 +19,7 @@ fetch("v2/people")
                   <a href="person.html?person_id=${id}"><h3 class="name">${name}</h3></a>
                   <p class="title lead">${role}</p>
                   <p class="lead">${desc}</p>
-                  <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                  <div class="social mt-auto"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
                 </div>
                 `;
 

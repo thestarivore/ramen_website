@@ -6,16 +6,32 @@
   background-color: #000000;
 }
 
-.container-fluid.page-content {
-  padding: 20px 40px;
+.page-content {
+  padding: 0px 40px;
+
 }
 
 .col-md-10.page {
   padding: 0px;
+  overflow: hidden;
 }
 
-.row.page-block {
-  padding: 15px 0px;
+.col-md-10.page-color-bg {
+  padding: 0px;
+  overflow: hidden;
+  background: linear-gradient(162deg, rgba(255,255,255,1) 60%, rgb(187, 187, 187) 100%);
+}
+
+
+.page-block {
+  padding: 15px 0px
+}
+
+.homepage-block{
+  padding: 15px 99rem;
+  position: relative; /* child absolute */
+  margin: 0 -99rem;
+  background: linear-gradient(162deg, rgb(187, 187, 187) 0%, rgba(255,255,255,1) 60%);
 }
 
 .col-sm-6.col-md-6.col-lg-4.col-xl-4.event-card {
@@ -46,7 +62,7 @@
 }
 
 .person-img {
-  height: 70vh;
+  height: 60vh;
 }
 
 .branding {
