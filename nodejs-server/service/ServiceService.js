@@ -17,11 +17,9 @@ exports.servicesGET = function(search) {
   .select({
     //Service
     date : "s.date",
-    mission : "s.mission",
     img : "s.img",
     name : "s.name",
     description : "s.description",
-    type : "s.type",
   });
   
   //search Parameter
@@ -31,11 +29,9 @@ exports.servicesGET = function(search) {
   return query.then(data => {
     return data.map( s => {
       s = { "date" : s.date,
-            "mission" : s.mission,
             "img" : s.img,
             "name" : s.name,
             "description" : s.description,
-            "type" : s.type,
           }
       return s;
     })
@@ -121,11 +117,9 @@ exports.servicesEventsGET = function(serviceName) {
     pEmail:"p.email",
     //Service
     sDate : "s.date",
-    sMission : "s.mission",
     sImg : "s.img",
     sName : "s.name",
     sDescription : "s.description",
-    sType : "s.type",
   });
   
   //serviceName Parameter
@@ -157,11 +151,9 @@ exports.servicesEventsGET = function(serviceName) {
             "max_participants": e.eMax_participants,
             "service" : {
               "date" : e.sDate,
-              "mission" : e.sMission,
               "img" : e.sImg,
               "name" : e.sName,
               "description" : e.sDescription,
-              "type" : e.sType,
             }
           }
       return e;

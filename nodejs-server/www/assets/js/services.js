@@ -9,7 +9,7 @@ fetch("v2/services")
     })
     .then(function(json) {
         for (var i = 0; i < json.length; i++) {
-            let {name, img, description, mission} = json[i];
+            let {name, img, description} = json[i];
             var desc = description.substr(1, 250) + ".."
         
             // Construct card content

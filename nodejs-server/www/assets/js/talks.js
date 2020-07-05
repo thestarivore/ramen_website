@@ -10,12 +10,12 @@ fetch("v2/services")
     .then(function(json) {
         for (var i = 0; i < json.length; i++) {
             //var listItem = document.createElement("li");
-            let {name, img, description, mission, type} = json[i];
+            let {name, img, description} = json[i];
             //listItem.innerHTML = `${id} - ${name} - ${description} - ${contact_reference.name}`;
             //myEventsList.appendChild(listItem);
             var desc = description.substr(1, 250) + ".."
 
-            if(type == 't'){
+            
               // Construct card content
               const content = `
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" style="padding: 15px 30px;">
@@ -34,6 +34,6 @@ fetch("v2/services")
 
               // Append newyly created card element to the container
               container.innerHTML += content;
-            }
+            
         }
     });

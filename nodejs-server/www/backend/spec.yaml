@@ -9,8 +9,8 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "localhost:8080"
-#host: "ramen-website.herokuapp.com"
+#host: "localhost:8080"
+host: "ramen-website.herokuapp.com"
 basePath: "/v2"
 tags:
 - name: "event"
@@ -22,8 +22,8 @@ tags:
 - name: "sponsor"
   description: "Sponsor of Events inside the Association"
 schemes:
-- "http"
-#- "https"
+#- "http"
+- "https"
 paths:
   /events:
     get:
@@ -408,11 +408,8 @@ definitions:
       service:
         name: "Teach how to do noodles"
         date: "12-05-2020 12:00:00"
-        mission: "Offer the best cooking experience and best tasting experience regarding\
-          \ noodles"
         img: "/pictures/noodles_service"
         description: "Teaching how to make noodles from the best cooks."
-        type: "t"
   Service:
     type: "object"
     required:
@@ -426,16 +423,9 @@ definitions:
       description:
         type: "string"
         example: "Teaching how to make noodles from the best cooks."
-      mission:
-        type: "string"
-        example: "Offer the best cooking experience and best tasting experience regarding\
-          \ noodles"
       img:
         type: "string"
         example: "/pictures/noodles_service"
-      type:
-        type: "string"
-        example: "t"
       date:
         type: "string"
         example: "12-05-2020 12:00:00"
@@ -443,12 +433,9 @@ definitions:
     description: "An Event offered by the Association"
     example:
       date: "12-05-2020 12:00:00"
-      mission: "Offer the best cooking experience and best tasting experience regarding\
-        \ noodles"
       img: "/pictures/noodles_service"
       name: "Teach how to do noodles"
       description: "Teaching how to make noodles from the best cooks."
-      type: "t"
   Person:
     type: "object"
     required:

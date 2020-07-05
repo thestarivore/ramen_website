@@ -47,11 +47,9 @@ exports.eventsEventIdGET = function(eventId) {
     pEmail:"p.email",
     //Service
     sDate : "s.date",
-    sMission : "s.mission",
     sImg : "s.img",
     sName : "s.name",
     sDescription : "s.description",
-    sType : "s.type",
   }).where("e.id",eventId).then(data => {
     return data.map( e => {
       e = {"contact_reference" : {
@@ -76,11 +74,9 @@ exports.eventsEventIdGET = function(eventId) {
           "max_participants" : e.max_participants,
           "service" : {
             "date" : e.sDate,
-            "mission" : e.sMission,
             "img" : e.sImg,
             "name" : e.sName,
             "description" : e.sDescription,
-            "type" : e.sType,
           }
         }
       return e;
@@ -125,11 +121,9 @@ exports.eventsGET = function(search, refName, refSurname) {
     pEmail:"p.email",
     //Service
     sDate : "s.date",
-    sMission : "s.mission",
     sImg : "s.img",
     sName : "s.name",
     sDescription : "s.description",
-    sType : "s.type",
   });
 
   //search Parameter
@@ -174,11 +168,9 @@ exports.eventsGET = function(search, refName, refSurname) {
           "max_participants" : e.max_participants,
           "service" : {
             "date" : e.sDate,
-            "mission" : e.sMission,
             "img" : e.sImg,
             "name" : e.sName,
             "description" : e.sDescription,
-            "type" : e.sType,
           }
         }
       return e;
@@ -264,19 +256,16 @@ exports.eventsServiceGET = function(eventId) {
   .select({
     //Service
     date : "s.date",
-    mission : "s.mission",
     img : "s.img",
     name : "s.name",
     description : "s.description",
-    type : "s.type",
   }).where("e.id",eventId).then(data => {
     return data.map( s => {
       s = { "date" : s.date,
-            "mission" : s.mission,
             "img" : s.img,
             "name" : s.name,
             "description" : s.description,
-            "type" : s.type,}
+          }
       return s;
     })
   });
