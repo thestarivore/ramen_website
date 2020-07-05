@@ -45,7 +45,7 @@ Promise.all([
             <div class="col-xl-6 align-items-stretch">
               <p class="text-justify lead">${description}</p>
               <h4>Contacts</h4>
-              <p class="lead">E-mail: ${email}<br>Phone: ${phone}</p>
+              <p class="lead">E-mail: <a href="mailto:${email}">${email}</a><br>Phone: ${phone}</p>
             </div>
           </div>
         `;

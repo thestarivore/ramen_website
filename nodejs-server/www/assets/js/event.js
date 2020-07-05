@@ -38,8 +38,7 @@ Promise.all([
         //Contact Ref content
         const contactRefcontent = `
         <a href="person.html?person_id=${contact_reference.id}">
-          ${contact_reference.name} ${contact_reference.surname} - ${contact_reference.role}
-        </a>`;
+          ${contact_reference.name} ${contact_reference.surname}</a>`;
 
         //Parse Date
         var pDate = new Date(date);
@@ -55,11 +54,11 @@ Promise.all([
         <div class="text-justify"> 
             <p class="lead">${description}</p>
             <h4>WHERE?:</h4>
-            <p class="lead">${location}, ${city}</p>
+            <a href="https://www.google.it/search?q=${location},%20${city}" <p class="lead">${location}, ${city}</p></a>
             <h4>WHEN?:</h4>
             <p class="lead">${pDate.toLocaleString()}</p>
             <h4>Contact Reference:</h4>
-            <p class="lead">${contactRefcontent}</p>
+            <p class="lead">${contactRefcontent} - <a href="mailto:${contact_reference.email}">${contact_reference.email}</a> - ${contact_reference.phone}</p>
     
             <h4>SPONSORS:</h4>
             <div class="row justify-content-around event-brands" id="event_sponsors">
