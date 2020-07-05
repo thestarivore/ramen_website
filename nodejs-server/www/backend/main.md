@@ -155,11 +155,7 @@ implementation choices (these should not be necessarily OpenAPI
 implementations). Toy APIs (such as the Swagger's Pet Store) or the example
 shown during lectures are not a valid response.
 
-The inspiration for defining the APIs of this project comes mostly from previous projects we have done. We have used and/or developed a lot of servers with a great amount of APIs. And this has helped us a lot for defining the endpoints and resources we needed to use. For instance the endpoints for this website were kind of similar in complexity to the endpoints designed for an App that one of our team member has developed and published: 
-
-[FilteRSS]: https://play.google.com/store/apps/details?id=com.makebit.filterss&amp;gl=DE
-
-
+The inspiration for defining the APIs of this project comes mostly from previous projects we have done. We have used and/or developed a lot of servers with a great amount of APIs. And this has helped us a lot for defining the endpoints and resources we needed to use. For instance the endpoints for this website were kind of similar in complexity to the endpoints designed for an App that one of our team member has developed and published:  [FilteRSS](https://play.google.com/store/apps/details?id=com.makebit.filterss)
 
 ### Learning outcome
 What was the most important thing all the members have learned while developing this part of the project, what questions remained unanswered, how you will use what you've learned in your everyday life?
