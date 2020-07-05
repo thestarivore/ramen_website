@@ -65,8 +65,8 @@ Promise.all([
         </div>
     
         <div class="row justify-content-between">
-            <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary" aria-label="Go to previous event"><<PREV</a>
-            <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right" aria-label="Go to next event">Next>></a>
+            <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary" aria-label="Go to previous event">&lt;PREV</a>
+            <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right" aria-label="Go to next event">Next&gt;</a>
         </div>
             
         </div>
