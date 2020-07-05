@@ -22,8 +22,8 @@ tags:
 - name: "sponsor"
   description: "Sponsor of Events inside the Association"
 schemes:
-#- "http"
-- "https"
+- "http"
+#- "https"
 paths:
   /events:
     get:
@@ -218,7 +218,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Person"
+              $ref: "#/definitions/PersonInvolved"
         "404":
           description: "Not Found. You requested a resource that could not be found or does not exist."
         "500":
@@ -493,6 +493,68 @@ definitions:
       id: 6
       email: "gino@gmail.com"
       is_founder: false
+  PersonInvolved:
+    type: "object"
+    required:
+    - "description"
+    - "email"
+    - "id"
+    - "name"
+    - "role"
+    - "surname"
+    - "commitment_type"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        example: "Gino"
+      surname:
+        type: "string"
+        example: "Mirtino"
+      img:
+        type: "string"
+        example: "/pictures/ginomirtino"
+      email:
+        type: "string"
+        example: "gino@gmail.com"
+      phone:
+        type: "string"
+        example: "3249412355"
+      description:
+        type: "string"
+        example: "apprentice cook, trying to help during the cooking events"
+      role:
+        type: "string"
+        example: "apprentice cook"
+      birthday:
+        type: "string"
+        example: "31-05-1990"
+      gender:
+        type: "string"
+        example: "male"
+      is_founder:
+        type: "boolean"
+        example: false
+      commitment_type:
+        type: "string"
+        example: "Presenter"
+    title: "PersonInvolved"
+    description: "A Person working for the Association"
+    example:
+      birthday: "31-05-1990"
+      img: "/pictures/ginomirtino"
+      role: "apprentice cook"
+      gender: "male"
+      phone: "3249412355"
+      surname: "Mirtino"
+      name: "Gino"
+      description: "apprentice cook, trying to help during the cooking events"
+      id: 6
+      email: "gino@gmail.com"
+      is_founder: false
+      commitment_type: "Presenter"
   Sponsor:
     type: "object"
     required:

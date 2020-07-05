@@ -71,11 +71,11 @@ Promise.all([
     //People Fetch promise
     json[2].then(function(result) { 
       for (var i = 0; i < result.length; i++) {
-        let {id, name, surname, role} = result[i];
+        let {id, name, surname, commitment_type} = result[i];
 
         // Construct card content
         const content = `
-          <li class="list-group-item"><a href="person.html?person_id=${id}">${name} ${surname} - ${role}</a></li>
+          <li class="list-group-item"><a href="person.html?person_id=${id}">${name} ${surname} - ${commitment_type}</a></li>
         `;
 
         // Append newyly created card element to the container

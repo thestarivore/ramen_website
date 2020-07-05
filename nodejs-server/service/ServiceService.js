@@ -61,6 +61,7 @@ exports.servicesPeopleGET = function(serviceName) {
     pDescription:"p.description",
     pId:"p.id",
     pEmail:"p.email",
+    pCommitmentType: "c.commitment_type",
   });
   
   //serviceName Parameter
@@ -78,7 +79,8 @@ exports.servicesPeopleGET = function(serviceName) {
             "name" : s.pName,
             "description" : s.pDescription,
             "id" : s.pId,
-            "email" : s.pEmail}
+            "email" : s.pEmail,
+            "commitment_type" : s.pCommitmentType}
       return s;
     })
   });
