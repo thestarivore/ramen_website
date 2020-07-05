@@ -5692,7 +5692,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 .breadcrumb-item.active {
-  color: #919aa1;
+  color: #575757;
   font-weight: 300;
 }
 
