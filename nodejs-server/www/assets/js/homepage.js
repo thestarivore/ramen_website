@@ -27,10 +27,10 @@ Promise.all([
         const content = `
         <div class="card h-100">
             <a href="event.html?event_id=${id}"><img class="card-img-top w-100 d-block" src="${img}"></a>
-            <div class="card-body">
+            <div class="card-body d-flex flex-column justify-content-start">
                 <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
                 <p class="card-text">${desc}</p>
-                <button class="btn btn-primary btn-block" href="event.html?event_id=${id}" type="button">SEE MORE</button>
+                <button class="btn btn-primary btn-block mt-auto" href="event.html?event_id=${id}" type="button">SEE MORE</button>
             </div>
         </div>
         `;

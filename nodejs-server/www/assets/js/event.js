@@ -27,7 +27,7 @@ Promise.all([
       //Event Fetch promise
       json[0].then(function(result) {   
         //var listItem = document.createElement("li");
-        let { id, name, img, description, contact_reference, location, city, service } = result[0];
+        let { id, name, img, description, contact_reference, location, city, service, date } = result[0];
         //listItem.innerHTML = `${id} - ${name} - ${description} - ${contact_reference.name}`;
 
         //Create/Complete the Breadcrumb

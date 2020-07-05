@@ -38,11 +38,11 @@ fetch("v2/events")
               <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 event-card">
                 <div class="card h-100">
                   <a href="event.html?event_id=${id}"><img class="card-img-top" src="${img}"></a>
-                  <div class="card-body">
-                    <a href="event.html?event_id=${id}"> <h4 class="card-title">${name}</h4></a>
+                  <div class="card-body d-flex flex-column justify-content-start">
+                    <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
                     <p>${service.name}</p>
                     <p>${desc}</p>
-                    <button class="btn btn-primary btn-block" href="event.html?event_id=${id}" type="button">SEE MORE</button>
+                    <button class="btn btn-primary btn-block mt-auto" href="event.html?event_id=${id}" type="button">SEE MORE</button>
                   </div>
                 </div>
               </div>
