@@ -42,7 +42,7 @@ fetch("v2/events")
                     <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
                     <p>${service.name}</p>
                     <p>${desc}</p>
-                    <button class="btn btn-primary btn-block mt-auto" href="event.html?event_id=${id}" type="button">SEE MORE</button>
+                    <a class="btn btn-primary btn-block mt-auto" href="event.html?event_id=${id}" type="button">SEE MORE</a>
                   </div>
                 </div>
               </div>

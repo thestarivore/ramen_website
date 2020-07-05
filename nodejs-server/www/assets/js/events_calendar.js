@@ -136,6 +136,12 @@ function buildCalendar(selectedMonth, selectedYear){
             }
           }
 
+          //Set the weekday Yellow if is the current day
+          if(date == today.getDate() && today.getMonth() == month)
+            weekdayHTML = `<h5 class="text-warning">${weekday[day]}</h5>`;
+          else
+            weekdayHTML = `<h5 class="text-white">${weekday[day]}</h5>`;
+
           //Set the date Yellow if is the current day
           if(date == today.getDate() && today.getMonth() == month)
             dateHTML = `<h5 class="text-warning">${date}</h5>`;
@@ -145,7 +151,7 @@ function buildCalendar(selectedMonth, selectedYear){
           // Construct card content
           const content = `
             <tr class="d-row">
-              <td class="col-md-1 bordered_column text-right"><h5 class="text-white">${weekday[day]}</h5></td>
+              <td class="col-md-1 bordered_column text-right">${weekdayHTML}</h5></td>
               <td col-md-1>${dateHTML}</td>
               <td col-md-10>${eventName}</td>
             </tr>

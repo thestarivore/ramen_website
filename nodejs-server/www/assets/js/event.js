@@ -51,17 +51,17 @@ Promise.all([
             <p class="lead">${date}</p>
     
             <h4>SPONSORS:</h4>
-            <div class="row justify-content-between align-items-center event-brands" id="event_sponsors">
+            <div class="row justify-content-around event-brands" id="event_sponsors">
         </div>
     
         <div class="row justify-content-between">
-            <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary"> << Previous Event</a>
-            <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right"> Next Event >></a>
+            <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary"> << PREV</a>
+            <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right"> Next>></a>
         </div>
             
         </div>
     </div>
-    <div class="col-sm-12 col-lg-4">
+    <div class="col-sm-12 col-lg-4 related-events">
     <div class="card">
         <ul class="list-group list-group-flush" id="events_group_index">
         <li class="list-group-item">
