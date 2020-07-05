@@ -8,12 +8,15 @@ fetch("v2/services")
         return response.json();
     })
     .then(function(json) {
+        //Empty the current list of services
+        dropdowServicesListContainer.innerHTML = "";
+
         for (var i = 0; i < json.length; i++) {
             let {name} = json[i];
         
             // Construct card content
             const content = `
-              <a class="dropdown-item" role="presentation" href="service.html?service_name=${name}">${name}</a>
+              <a class="dropdown-item" role="menuitem" href="service.html?service_name=${name}">${name}</a>
             `;
 
             // Append newyly created card element to the container
