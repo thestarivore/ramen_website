@@ -16,7 +16,7 @@ fetch("v2/services")
         
             // Construct card content
             const content = `
-              <a class="dropdown-item" role="menuitem" href="service.html?service_name=${name}">${name}</a>
+              <a class="dropdown-item" role="presentation" href="service.html?service_name=${name}">${name}</a>
             `;
 
             // Append newyly created card element to the container
