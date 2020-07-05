@@ -22,8 +22,8 @@ tags:
 - name: "sponsor"
   description: "Sponsor of Events inside the Association"
 schemes:
-- "http"
-#- "https"
+#- "http"
+- "https"
 paths:
   /events:
     get:
