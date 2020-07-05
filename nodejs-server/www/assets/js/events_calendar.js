@@ -62,7 +62,7 @@ function buildCalendar(selectedMonth, selectedYear){
         //Set the Month on the Head
         const content = `
         <div>
-          <button id="left_month_btn" type="button" class="btn btn-default">
+          <button id="left_month_btn" type="button" class="btn btn-default" aria-label="previous month">
             <span class="arrow left"></span>
           </button>
         </div>
@@ -72,7 +72,7 @@ function buildCalendar(selectedMonth, selectedYear){
         </div>
 
         <div>
-          <button id="right_month_btn" type="button" class="btn btn-default">
+          <button id="right_month_btn" type="button" class="btn btn-default" aria-label="next month">
             <span class="arrow right"></span>
           </button>
         </div>

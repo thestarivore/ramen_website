@@ -47,7 +47,7 @@ Promise.all([
         const content = `
         <div class="col-sm-12 col-lg-8">
         <div class="intro"><h1 class="text-center">${name}</h1></div>
-        <div class="col-auto d-flex justify-content-center"><img src="${img}" class="event-img" alt="..."></div>
+        <div class="col-auto d-flex justify-content-center"><img src="${img}" class="event-img" alt="${name} image"></div>
 
         <h4>${service.name} - ${pDate.toLocaleDateString()}</h4>
     
@@ -65,8 +65,8 @@ Promise.all([
         </div>
     
         <div class="row justify-content-between">
-            <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary"><< PREV</a>
-            <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right" Next>></a>
+            <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary" aria-label="Go to previous event"><<PREV</a>
+            <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right" aria-label="Go to next event">Next>></a>
         </div>
             
         </div>

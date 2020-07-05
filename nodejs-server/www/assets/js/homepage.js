@@ -27,7 +27,7 @@ Promise.all([
         const content = `
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 event-card">
         <div class="card h-100">
-          <a href="event.html?event_id=${id}"><img class="card-img-top" src="${img}"></a>
+          <a href="event.html?event_id=${id}"><img class="card-img-top" src="${img}" alt="${name} image"></a>
           <div class="card-body d-flex flex-column justify-content-start">
             <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
             <p>${service.name}</p>
@@ -53,11 +53,15 @@ Promise.all([
             // Construct card content
             const content = `
             <div class="col-md-6 col-lg-4 item">
-            <a href="person.html?person_id=${id}"><img class="rounded-circle" src="${img}"></a>
+            <a href="person.html?person_id=${id}"><img class="rounded-circle" src="${img}" alt="${name} ${surname} image"></a>
               <a href="person.html?person_id=${id}"><h3 class="name">${name}</h3></a>
               <p class="title lead">${role}</p>
               <p class="lead">${desc}</p>
-              <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+              <div class="social">
+              <a href="https://www.facebook.com/" aria-label="FACEBOOK"><i class="icon ion-social-facebook"></i></a>
+              <a href="https://twitter.com/" aria-label="TWITTER"><i class="icon ion-social-twitter"></i></a>
+              <a href="https://www.instagram.com/" aria-label="INSTAGRAM"><i class="icon ion-social-instagram"></i></a>
+              </div>
             </div>
             `;
 
@@ -92,7 +96,7 @@ Promise.all([
         <div class="col-12 col-md-6">
           <a href="service.html?service_name=${name}">
             <div class="card">
-                <img class="card-img-service w-100 d-block" src="${img}">
+                <img class="card-img-service w-100 d-block" src="${img}" alt="${name} image">
                 <div class="card-img-overlay d-flex justify-content-center align-items-center">
                     <h4 class="card-title text-white">${name}</h4>
                 </div>

@@ -13,7 +13,7 @@ fetch("v2/sponsors")
 
             // Construct card content
             const content = `
-                <img src="${img}"> 
+                <img src="${img}" alt="${company} image"> 
             `;
 
             // Append newyly created card element to the container
