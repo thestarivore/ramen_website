@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lan="eng">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -52,7 +52,7 @@
         <div class="col-lg-2 align-self-stretch sidebar">
             <div class="table-responsive hide-overflow">
                 <div class="row d-flex justify-content-center align-items-center calendar-heading " id="ecalendar_table_head"></div>
-                <table class="table justify-content-center align-items-center">
+                <table class="table d-flex justify-content-center align-items-center">
                     <tbody class="calendar" id="ecalendar_table_body">
                     </tbody>
                 </table>
@@ -67,7 +67,9 @@
                     <li class="breadcrumb-item active" id="person_breadcrumb_page"></li>
                 </ol>
 
-                <div id="person_content"></div>
+                <div class="row d-flex justify-content-center page-block">
+                    <div class="col-10" id="person_content"></div>
+                </div>
                 
             </div>
             <div class="row d-flex justify-content-center page-block">
@@ -76,7 +78,7 @@
                         <h2 class="text-center">RELATED EVENTS</h2>
                     </div>
     
-                    <div class="row row-cols-3 d-sm-inline d-lg-flex justify-content-center"  id="person_event_content"></div>
+                    <div class="row d-flex justify-content-center"  id="person_event_content"></div>
                 </div>
             </div>
         </div>

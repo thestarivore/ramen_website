@@ -36,13 +36,15 @@ Promise.all([
 
         // Construct card content
         const content = `
-          <div class="intro">
+          <div class="row d-flex justify-content-center intro">
             <h1 class="display-4 text-center">${name} ${surname}</h1>
+          </div>
+         <div class="row d-flex justify-content-center intro">
             <p class="lead text-center">${role}</p>
           </div>
-          <div class="row d-inline-flex justify-content-center">
-            <div class="col-auto"><img class="person-img" src="${img}" alt="${name} ${surname} image"></div>
-            <div class="col-xl-6 align-items-stretch">
+          <div class="row d-flex justify-content-center">
+            <div class="col-auto"><img class="person-img img-fluid" src="${img}" alt="${name} ${surname} image"></div>
+            <div class="col-sm-12 col-lg-6 align-items-stretch">
               <p class="text-justify lead">${description}</p>
               <h4>Contacts</h4>
               <p class="lead">E-mail: <a href="mailto:${email}">${email}</a><br>Phone: ${phone}</p>
@@ -68,16 +70,16 @@ Promise.all([
 
             // Construct card content
             const content = `
-            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 event-card">
-            <div class="card h-100">
-              <a href="event.html?event_id=${id}"><img class="card-img-top" src="${img}"></a>
-              <div class="card-body d-flex flex-column justify-content-start">
-                <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
-                <p>${service.name}</p>
-                <p>${desc}</p>
-                <a class="btn btn-primary btn-block mt-auto" href="event.html?event_id=${id}" type="button">SEE MORE</a>
+            <div class="col-md-12 col-lg-6 col-xl-4 event-card">
+              <div class="card h-100">
+                <a href="event.html?event_id=${id}"><img class="card-img-top" src="${img}"></a>
+                <div class="card-body d-flex flex-column justify-content-start">
+                  <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
+                  <p>${service.name}</p>
+                  <p>${desc}</p>
+                  <a class="btn btn-primary btn-block mt-auto" href="event.html?event_id=${id}" type="button">SEE MORE</a>
+                </div>
               </div>
-            </div>
             </div>
             `;
 
