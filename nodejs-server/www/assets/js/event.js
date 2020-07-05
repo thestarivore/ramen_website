@@ -41,14 +41,16 @@ Promise.all([
         <div class="intro"><h1 class="text-center">${name}</h1></div>
         <div class="col-auto d-flex justify-content-center"><img src="${img}" class="event-img" alt="..."></div>
 
-        <p class="lead">${service}</p>
+        <h4>${service.name} /// ${date}</h4>
     
         <div class="text-justify"> 
             <p class="lead">${description}</p>
-            <p class="lead">LOCATION:</p>
+            <h4>WHERE?:</h4>
             <p class="lead">${location}, ${city}</p>
+            <h4>WHEN?:</h4>
+            <p class="lead">${date}</p>
     
-            <p class="lead">SPONSORS:</p>
+            <h4>SPONSORS:</h4>
             <div class="row justify-content-between align-items-center event-brands" id="event_sponsors">
         </div>
     
