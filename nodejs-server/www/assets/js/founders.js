@@ -15,11 +15,15 @@ fetch("v2/people")
             if(is_founder){
                 // Construct card content
                 const content = `
-                <div class="col-md-6 col-lg-4 item"><a href="person.html?person_id=${id}"><img class="rounded-circle" src="${img}"></a>
-                  <a href="person.html?person_id=${id}"><h3 class="name">${name}</h3></a>
+                <div class="col-md-6 col-lg-4 item"><a href="person.html?person_id=${id}"><img class="rounded-circle" src="${img}" alt="${name} ${surname} image"></a>
+                  <a href="person.html?person_id=${id}"><h3 class="name">${name} ${surname}</h3></a>
                   <p class="title lead">${role}</p>
                   <p class="lead">${desc}</p>
-                  <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                  <div class="social mt-auto">
+                  <a href="https://www.facebook.com/" aria-label="FACEBOOK"><i class="icon ion-social-facebook"></i></a>
+                  <a href="https://twitter.com/" aria-label="TWITTER"><i class="icon ion-social-twitter"></i></a>
+                  <a href="https://www.instagram.com/" aria-label="INSTAGRAM"><i class="icon ion-social-instagram"></i></a>
+                  </div>
                 </div>
                 `;
 

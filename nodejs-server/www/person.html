@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lan="eng">
 
 <head>
     <meta charset="utf-8">
@@ -29,7 +29,7 @@
 <body>
     <nav class="navbar navbar-dark navbar-expand-xl fixed-top bg-primary">
         <div class="container-fluid">
-            <div class="d-flex flex-grow-1 justify-content-between"><a class="navbar-brand" href="index.html"><img class="branding" src="assets/img/logo.png"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+            <div class="d-flex flex-grow-1 justify-content-between"><a class="navbar-brand" href="index.html"><img class="branding" src="assets/img/logo.png" alt="RAMEN ASSOCIATION HOMEPAGE"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
@@ -52,13 +52,13 @@
         <div class="col-lg-2 align-self-stretch sidebar">
             <div class="table-responsive hide-overflow">
                 <div class="row d-flex justify-content-center align-items-center calendar-heading " id="ecalendar_table_head"></div>
-                <table class="table">
+                <table class="table justify-content-center align-items-center">
                     <tbody class="calendar" id="ecalendar_table_body">
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="col-md-10 page">
+        <div class="col-md-10 page-color-bg">
             <div class="container-fluid justify-content-center page-content">
                 <!--Crumbread-->
                 <ol class="breadcrumb">
@@ -70,13 +70,14 @@
                 <div id="person_content"></div>
                 
             </div>
-            <div class="container-fluid page-content">
-                <div class="intro">
-                    <h2 class="text-center">RELATED EVENTS</h2>
+            <div class="row d-flex justify-content-center page-block">
+                <div class="col">
+                    <div class="intro">
+                        <h2 class="text-center">RELATED EVENTS</h2>
+                    </div>
+    
+                    <div class="row row-cols-3 d-sm-inline d-lg-flex justify-content-center"  id="person_event_content"></div>
                 </div>
-
-                <div class="row row-cols-3 d-sm-inline d-lg-flex justify-content-center"  id="person_event_content"></div>
-
             </div>
         </div>
     </div>
@@ -89,7 +90,10 @@
                             <h2>CONTACT US</h2>
                         </a>
                     </div>
-                    <div class="col-md-4 justify-content-end justify-content-sm-center item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                    <div class="col-md-4 justify-content-end justify-content-sm-center item social">
+                        <a href="https://www.facebook.com/" aria-label="FACEBOOK"><i class="icon ion-social-facebook"></i></a>
+                        <a href="https://twitter.com/" aria-label="TWITTER"><i class="icon ion-social-twitter"></i></a>
+                        <a href="https://www.instagram.com/" aria-label="INSTAGRAM"><i class="icon ion-social-instagram"></i></a>
                         <p class="copyright">RAMEN © 2020</p>
                     </div>
                 </div>

@@ -37,7 +37,7 @@ fetch("v2/events")
             const content = `
               <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 event-card">
                 <div class="card h-100">
-                  <a href="event.html?event_id=${id}"><img class="card-img-top" src="${img}"></a>
+                  <a href="event.html?event_id=${id}"><img class="card-img-top" src="${img}" alt="${name} image"></a>
                   <div class="card-body d-flex flex-column justify-content-start">
                     <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
                     <p>${service.name}</p>

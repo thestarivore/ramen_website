@@ -1,23 +1,15 @@
-.team-clean {
-  color: #313437;
-  background-color: #fff;
-}
-
-.team-clean p {
-  color: #7d8285;
-}
 
 .team-clean h2 {
   font-weight: bold;
-  margin-bottom: 40px;
-  padding-top: 40px;
+  margin-bottom: 20px;
+  padding-top: 20px;
   color: inherit;
 }
 
 @media (max-width:767px) {
   .team-clean h2 {
-    margin-bottom: 25px;
-    padding-top: 25px;
+    margin-bottom: 15px;
+    padding-top: 15px;
     font-size: 24px;
   }
 }
@@ -33,27 +25,19 @@
 }
 
 .team-clean .people {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .team-clean .item {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 .team-clean .item .name {
   font-weight: bold;
-  margin-top: 28px;
+  margin-top: 15px;
   margin-bottom: 8px;
   color: inherit;
-}
-
-.team-clean .item .title {
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #d0d0d0;
-  letter-spacing: 2px;
-  font-size: 13px;
 }
 
 .team-clean .item .description {
@@ -68,7 +52,7 @@
 
 .team-clean .social {
   font-size: 18px;
-  color: #a2a8ae;
+  color: #000000
 }
 
 .team-clean .social a {
