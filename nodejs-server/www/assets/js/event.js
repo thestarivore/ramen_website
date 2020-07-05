@@ -93,7 +93,7 @@ Promise.all([
           let {company, img} = result[i];
 
           //Fetch the content of the Sponsors and dynamically add them to the page
-          const scontainer = document.getElementById('event_sponsors');
+          var scontainer = document.getElementById('event_sponsors');
 
           // Construct card content
           const content = `
@@ -120,7 +120,7 @@ Promise.all([
           let {id, name} = result[i];
 
           //Fetch the content of all the Events and dynamically create Events Index Menu
-          const scontainer = document.getElementById('events_group_index');
+          var scontainer = document.getElementById('events_group_index');
 
           // Construct card content
           var content = "";
