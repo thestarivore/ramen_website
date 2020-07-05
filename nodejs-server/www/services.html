@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="assets/css/Team-Boxed.css">
     <link rel="stylesheet" href="assets/css/Team-Clean.css">
     <link rel="stylesheet" href="assets/css/Team-Grid.css">
-    <link rel="stylesheet" href="assets/css/Person.css">
+    <link rel="stylesheet" href="assets/css/Events.css">
     <link rel="stylesheet" href="assets/css/Calendar.css">
 </head>
 
-<body>
-    <nav class="navbar navbar-dark navbar-expand-xl fixed-top bg-primary">
+<body style="background-color: #ffffff;">
+    <nav class="navbar navbar-dark navbar-expand-xl fixed-top bg-primary" style="max-height: 90px;">
         <div class="container-fluid">
-            <div class="d-flex flex-grow-1 justify-content-between"><a class="navbar-brand" href="index.html"><img class="branding" src="assets/img/logo.png" alt="RAMEN ASSOCIATION HOMEPAGE"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+            <div class="d-flex flex-grow-1 justify-content-between"><a class="navbar-brand" href="index.html"><img class="branding" src="assets/img/logo.png"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
@@ -55,56 +55,23 @@
         <div class="col-lg-2 align-self-stretch sidebar">
             <div class="table-responsive hide-overflow">
                 <div class="row d-flex justify-content-center align-items-center calendar-heading " id="ecalendar_table_head"></div>
-                <table class="table d-flex justify-content-center align-items-center">
+                <table class="table">
                     <tbody class="calendar" id="ecalendar_table_body">
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="col-md-10 page-color-bg">
-            <div class="container-fluid justify-content-center page-content">
+        <div class="col-md-10">
+            <div class="container-fluid" style="padding-top: 20px;margin-top: 0px;padding-right: 40px;padding-left: 40px;">
+
+                <!--Crumbread-->
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#"><span>Services</span></a></li>
-                    <!--<li class="breadcrumb-item" id="breadcrumb_service_type"></li>-->
-                    <li class="breadcrumb-item active" id="breadcrumb_service_type"></li>
+                    <li class="breadcrumb-item"><a href="index.html"><span>Home</span></a></li>
+                    <li class="breadcrumb-item"><span>Services</span></li>
+                    <li class="breadcrumb-item active"><span>Talks</span></li>
                 </ol>
+                <div class="row" id="services_row_list">
 
-                <div class="intro">
-                    <h1 class="display-4 text-center" id="service_name"></h1>
-                </div>
-                
-                <div class="row d-flex justify-content-center">
-                    <div class="col-10 d-flex justify-content-center service-crop" id="service_img">
-                    </div>
-                </div>
-
-                <div class="row d-flex justify-content-center page-block">
-                    <div class="col-10 d-flex justify-content-center">
-                        <p class="text-justify" id="service_description"></p>
-                    </div>
-                </div>
-
-                <div class="row d-flex justify-content-center page-block">
-                    <div class="col-10">                     
-                        <h4>People Involved</h4>
-                        <ul class="list-group" id="people_involved">
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="row d-flex justify-content-center page-block">
-                    <div class="col">                     
-                        <div class="intro">
-                            <h2 class="text-center">RELATED EVENTS</h2>
-                        </div> 
-    
-                        <div class="row d-flex justify-content-center"  id="related_events_cards"></div>
-                    </div>
-                </div>
-                <div class="row d-flex justify-content-end page-block">
-                    <div class="col">                     
-                        <h3 class="text-right"><a href="events.html"><strong>OTHER EVENTS &gt;&gt;&gt;</strong></a></h3>
-                    </div>
                 </div>
             </div>
         </div>
@@ -118,10 +85,7 @@
                             <h2>CONTACT US</h2>
                         </a>
                     </div>
-                    <div class="col-md-4 justify-content-end justify-content-sm-center item social">
-                        <a href="https://www.facebook.com/" aria-label="FACEBOOK"><i class="icon ion-social-facebook"></i></a>
-                        <a href="https://twitter.com/" aria-label="TWITTER"><i class="icon ion-social-twitter"></i></a>
-                        <a href="https://www.instagram.com/" aria-label="INSTAGRAM"><i class="icon ion-social-instagram"></i></a>
+                    <div class="col-md-4 justify-content-end justify-content-sm-center item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
                         <p class="copyright">RAMEN © 2020</p>
                     </div>
                 </div>
@@ -132,7 +96,7 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
     <!--Call the JS Script to create the dynamic content of the page-->
-    <script type="text/javascript" src="assets/js/service.js"></script>
+    <script type="text/javascript" src="assets/js/services.js"></script>
 
     <!--Call the JS Script to create the dynamic calendar-->
     <script type="text/javascript" src="assets/js/events_calendar.js"></script>
