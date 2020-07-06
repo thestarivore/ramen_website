@@ -49,7 +49,7 @@ Promise.all([
         <div class="intro"><h1 class="text-center">${name}</h1></div>
         <div class="col-auto d-flex justify-content-center"><img src="${img}" class="event-img" alt="${name} image"></div>
 
-        <h4>${service.name} - ${pDate.toLocaleDateString()}</h4>
+        <h4><a href="service.html?service_name=${service.name}">${service.name}</a> - ${pDate.toLocaleDateString()}</h4>
     
         <div class="text-justify"> 
             <p class="lead">${description}</p>
@@ -57,14 +57,14 @@ Promise.all([
             <a href="https://www.google.it/search?q=${location},%20${city}" <p class="lead">${location}, ${city}</p></a>
             <h4>WHEN?</h4>
             <p class="lead">${pDate.toLocaleString()}</p>
-            <h4>MAX PARTECIPANTS: ${max_participants}</h4>
+            <h4>MAX PARTECIPANTS:</h4>
+            <p class="lead">${max_participants}</p>
             <h4>Contact Reference:</h4>
             <p class="lead">${contactRefcontent} - <a href="mailto:${contact_reference.email}">${contact_reference.email}</a> - ${contact_reference.phone}</p>
     
             <h4>SPONSORS:</h4>
             <div class="row justify-content-around event-brands" id="event_sponsors">
         </div>
-        align-items-center calendar-heading
         <div class="row justify-content-between">
             <a href="event.html?event_id=${id}" id="previous_event_link" class="btn btn-primary" aria-label="Go to previous event">&lt;PREV</a>
             <a href="event.html?event_id=${id}" id="next_event_link" class="btn btn-primary pull-right" aria-label="Go to next event">Next&gt;</a>

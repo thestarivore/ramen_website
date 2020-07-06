@@ -43,7 +43,7 @@ Promise.all([
             <p class="lead text-center">${role}</p>
           </div>
           <div class="row d-flex justify-content-center">
-            <div class="col-auto"><img class="person-img img-fluid" src="${img}" alt="${name} ${surname} image"></div>
+            <div class="col-md-12 col-lg-6"><img class="person-img img-fluid" src="${img}" alt="${name} ${surname} image"></div>
             <div class="col-sm-12 col-lg-6 align-items-stretch">
               <p class="text-justify lead">${description}</p>
               <h4>Contacts</h4>
