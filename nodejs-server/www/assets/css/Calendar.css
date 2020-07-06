@@ -51,6 +51,5 @@ td.bordered_column {
 }
 
 .calendar-heading {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 10px;
 }

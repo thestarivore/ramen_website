@@ -19,7 +19,7 @@
 .col-md-10.page-color-bg {
   padding: 0px;
   overflow: hidden;
-  background: linear-gradient(162deg, rgba(255,255,255,1) 60%, rgb(187, 187, 187) 100%);
+  background: linear-gradient(162deg, rgba(255,255,255,1) 20%, rgb(187, 187, 187) 100%);
 }
 
 
@@ -31,7 +31,7 @@
   padding: 15px 99rem;
   position: relative; /* child absolute */
   margin: 0 -99rem;
-  background: linear-gradient(162deg, rgba(255,255,255,1) 60%, rgb(187, 187, 187) 100%);
+  background: linear-gradient(162deg, rgba(255,255,255,1) 20%, rgb(187, 187, 187) 100%);
 }
 
 .event-card {
@@ -64,6 +64,7 @@
 .person-img {
   height: 60vh;
   object-fit: cover;
+  padding-bottom: 20px;
 }
 
 .branding {

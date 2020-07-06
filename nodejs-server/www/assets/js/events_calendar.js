@@ -68,7 +68,7 @@ function buildCalendar(selectedMonth, selectedYear){
         </div>
 
         <div>
-          <h2 class="text-white">${monthArray[month] + " " + year.toString().substring(2,4)}</h2>
+          <h3 class="text-white">${monthArray[month] + " " + year.toString().substring(2,4)}</h3>
         </div>
 
         <div>
