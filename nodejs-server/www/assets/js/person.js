@@ -75,7 +75,7 @@ Promise.all([
                 <a href="event.html?event_id=${id}"><img class="card-img-top" src="${img}"></a>
                 <div class="card-body d-flex flex-column justify-content-start">
                   <a href="event.html?event_id=${id}"><h4 class="card-title">${name}</h4></a>
-                  <p>${service.name}</p>
+                  <a href="service.html?service_name=${service.name}"><p>${service.name}</p></a>
                   <p>${desc}</p>
                   <a class="btn btn-primary btn-block mt-auto" href="event.html?event_id=${id}" type="button">SEE MORE</a>
                 </div>
