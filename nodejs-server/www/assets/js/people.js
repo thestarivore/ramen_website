@@ -35,7 +35,7 @@ fetch("v2/people")
             // Construct card content
             const content = `
               <div class="col-md-12 col-lg-6 col-xl-3" people-card>
-                  <div class="card">
+                  <div class="card h-100">
                     <a href="person.html?person_id=${id}"><img class="card-img-top w-100" src="${img}" alt="${name} ${surname} image"></a>
                     <div class="card-body text-center">
                         <a href="person.html?person_id=${id}"><h5 class="card-subtitle">${name} ${surname}</h5></a>

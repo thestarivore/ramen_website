@@ -75,7 +75,7 @@ Promise.all([
         <div class="card">
             <ul class="list-group list-group-flush" id="events_group_index">
             <li class="list-group-item">
-                <h4 class="card-title">Related Events</h4>
+                <h4>Related Events</h4>
             </li>
         
             </ul>
@@ -97,7 +97,7 @@ Promise.all([
 
           // Construct card content
           const content = `
-          <img src="${img}"> 
+          <img src="${img}" alt="${company} logo"> 
           `;
 
           // Append newyly created card element to the container
